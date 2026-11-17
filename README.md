@@ -21,10 +21,8 @@ Setiap anggota kelompok membangun aplikasi web utuh miliknya sendiri dalam tema 
 
 | Luaran | Tautan |
 |---|---|
-| Video Progres 1 — PRD & Konsep Aplikasi | [LINK VIDEO PROGRES 1] |
-| Video Progres 2 — Pemodelan UML & UI/UX | [LINK VIDEO PROGRES 2] |
-| Video Final — Live Demo Aplikasi | [LINK VIDEO FINAL] |
-| Prototipe Figma | [LINK FIGMA] |
+| Video Final —  | [https://www.youtube.com/watch?v=roxH2lq1k-w] |
+| Prototipe Figma | [https://www.figma.com/design/oZvolkE7MD2HuXWPPPOHdQ/CAMPUSFIND-%E2%80%94-Interactive-Prototype?node-id=3-2&t=KYXtsPqq4d5KHTxp-1] |
 
 Dokumen PRD/SRS, SDD (UML, ERD, UI/UX), dan Laporan Pengujian/CI-CD digabung dalam satu berkas PDF yang diunggah ke portal LMS perkuliahan.
 
@@ -143,7 +141,7 @@ mysql -u root campus_find < database\seeds.sql
 php database\create_admin.php
 ```
 
-**6. (Opsional) Isi data demo fiktif**
+**6. Isi data demo fiktif**
 
 Isi `DEMO_ADMIN_PASSWORD`, `DEMO_PETUGAS_PASSWORD`, dan `DEMO_CIVITAS_PASSWORD` di `.env` dengan password pilihan sendiri, lalu:
 
