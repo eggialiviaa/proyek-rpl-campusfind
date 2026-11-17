@@ -20,7 +20,7 @@ class SemanticSchema
 
     public function __construct(?array $schema = null)
     {
-        $this->schema = $schema ?? require dirname(__DIR__, 2) . '/config/cfind_schema.php';
+        $this->schema = $schema ?? require dirname(__DIR__, 3) . '/config/cfind_schema.php';
         $this->timezone = new DateTimeZone('Asia/Jakarta');
     }
 
