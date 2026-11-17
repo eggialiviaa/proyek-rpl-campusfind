@@ -1,0 +1,688 @@
+/* =============================================================
+   CampusFind Phase 4A — Isolated Optical Liquid Glass Prototype
+   Approved Palette ONLY:
+   Navy #14283C | Soft White #F7F8FA | Cool Gray #F0F3F6
+   Warm Brown #A77B5B | Dark Brown #77543D | Muted Sage #A9B8A4
+   ============================================================= */
+
+:root {
+    --cf-navy: #14283C;
+    --cf-navy-deep: #0E1D2C;
+    --cf-soft-white: #F7F8FA;
+    --cf-cool-gray: #F0F3F6;
+    --cf-warm-brown: #A77B5B;
+    --cf-dark-brown: #77543D;
+    --cf-muted-sage: #A9B8A4;
+
+    --lg-ptr-x: 50%;
+    --lg-ptr-y: 28%;
+    --lg-angle: 132deg;
+    --lg-spec-opacity: 0.72;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.cf-lg-proto {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--cf-soft-white);
+    color: var(--cf-navy);
+    line-height: 1.55;
+    overflow-x: clip;
+}
+
+.cf-lg-svg-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Floating Optical Liquid Glass Capsule Dock
+   ───────────────────────────────────────────────────────────── */
+.cf-lg-nav-dock {
+    position: fixed;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+    pointer-events: none;
+}
+
+.cf-lg-capsule {
+    pointer-events: auto;
+    position: relative;
+    width: min(920px, 100%);
+    min-height: 60px;
+    border-radius: 9999px;
+    isolation: isolate;
+    transform: translateZ(0);
+    will-change: transform;
+    box-shadow:
+        0 18px 44px rgba(20, 40, 60, 0.16),
+        0 3px 10px rgba(20, 40, 60, 0.08),
+        inset 0 1px 0 rgba(247, 248, 250, 0.75),
+        inset 0 -1px 0 rgba(20, 40, 60, 0.10);
+}
+
+/* Dedicated Optical Refraction Layer (never wraps text/icons) */
+.cf-lg-refraction-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: 0;
+    background-color: rgba(247, 248, 250, 0.36);
+    -webkit-backdrop-filter: blur(16px) saturate(1.45);
+    backdrop-filter: blur(16px) saturate(1.45);
+}
+
+/* Chromium SVG feDisplacementMap Optical Lens */
+.cf-lg-proto.is-optical-active .cf-lg-refraction-layer--tile,
+.cf-lg-proto.is-optical-active .cf-lg-capsule .cf-lg-refraction-layer {
+    background-color: rgba(247, 248, 250, 0.14);
+    -webkit-backdrop-filter: url(#cf-lg-nav-filter) saturate(1.22);
+    backdrop-filter: url(#cf-lg-nav-filter) saturate(1.22);
+}
+
+.cf-lg-proto.is-optical-active .cf-lg-refraction-layer--tile {
+    -webkit-backdrop-filter: url(#cf-lg-tile-filter) saturate(1.22);
+    backdrop-filter: url(#cf-lg-tile-filter) saturate(1.22);
+}
+
+/* Explicit Blur-Only Fallback Override */
+.cf-lg-proto.is-fallback-forced .cf-lg-refraction-layer {
+    background-color: rgba(247, 248, 250, 0.56);
+    -webkit-backdrop-filter: blur(20px) saturate(1.55);
+    backdrop-filter: blur(20px) saturate(1.55);
+}
+
+/* Dark Theme Surface Variant (legibility stress test) */
+.cf-lg-proto.is-dark-capsule .cf-lg-capsule {
+    box-shadow:
+        0 20px 48px rgba(10, 20, 32, 0.36),
+        inset 0 1px 0 rgba(247, 248, 250, 0.32),
+        inset 0 -1px 0 rgba(167, 123, 91, 0.28);
+}
+
+.cf-lg-proto.is-dark-capsule .cf-lg-refraction-layer {
+    background-color: rgba(20, 40, 60, 0.42);
+}
+
+.cf-lg-proto.is-dark-capsule .cf-lg-brand,
+.cf-lg-proto.is-dark-capsule .cf-lg-link {
+    color: var(--cf-soft-white);
+}
+
+.cf-lg-proto.is-dark-capsule .cf-lg-menu-btn span {
+    background-color: var(--cf-soft-white);
+}
+
+/* Dynamic Pointer-Tracked Radial Specular Highlight */
+.cf-lg-specular-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            240px circle at var(--lg-ptr-x) var(--lg-ptr-y),
+            rgba(247, 248, 250, var(--lg-spec-opacity)) 0%,
+            rgba(240, 243, 246, 0.22) 38%,
+            rgba(247, 248, 250, 0) 74%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.34) 0%,
+            rgba(247, 248, 250, 0.04) 48%,
+            rgba(20, 40, 60, 0.08) 100%
+        );
+    mix-blend-mode: screen;
+}
+
+/* Subtle Chromatic Fresnel Edge Rim (CampusFind Warm Brown + Muted Sage + Ice White) */
+.cf-lg-rim-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.25px;
+    z-index: 1;
+    pointer-events: none;
+    background: conic-gradient(
+        from var(--lg-angle),
+        rgba(247, 248, 250, 0.92) 0deg,
+        rgba(167, 123, 91, 0.56) 65deg,
+        rgba(169, 184, 164, 0.48) 150deg,
+        rgba(20, 40, 60, 0.22) 235deg,
+        rgba(119, 84, 61, 0.42) 305deg,
+        rgba(247, 248, 250, 0.92) 360deg
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* Crisp Foreground Content Layer */
+.cf-lg-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.52rem 0.65rem 0.52rem 1.25rem;
+}
+
+.cf-lg-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 800;
+    font-size: 0.98rem;
+    letter-spacing: -0.02em;
+    color: var(--cf-navy);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.cf-lg-brand-mark {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cf-warm-brown) 0%, var(--cf-dark-brown) 100%);
+    box-shadow: 0 0 0 3px rgba(167, 123, 91, 0.22);
+}
+
+.cf-lg-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+}
+
+.cf-lg-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.95rem;
+    border-radius: 9999px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--cf-navy);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cf-lg-link:hover,
+.cf-lg-link.is-active {
+    background-color: rgba(20, 40, 60, 0.10);
+}
+
+.cf-lg-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cf-lg-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.56rem 1.15rem;
+    border-radius: 9999px;
+    background-color: var(--cf-navy);
+    color: var(--cf-soft-white);
+    font-size: 0.85rem;
+    font-weight: 650;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(20, 40, 60, 0.22);
+}
+
+.cf-lg-cta:hover {
+    background-color: var(--cf-navy-deep);
+}
+
+.cf-lg-menu-btn {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(20, 40, 60, 0.16);
+    background-color: rgba(247, 248, 250, 0.55);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.cf-lg-menu-btn span {
+    width: 16px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--cf-navy);
+}
+
+.cf-lg-mobile-drawer {
+    pointer-events: auto;
+    margin-top: 0.65rem;
+    width: 100%;
+    max-width: 360px;
+    padding: 0.9rem;
+    border-radius: 1.25rem;
+    background-color: rgba(247, 248, 250, 0.88);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(20, 40, 60, 0.12);
+    box-shadow: 0 18px 40px rgba(20, 40, 60, 0.18);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.cf-lg-mobile-drawer[hidden] {
+    display: none;
+}
+
+.cf-lg-drawer-link {
+    padding: 0.65rem 0.9rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    color: var(--cf-navy);
+    text-decoration: none;
+}
+
+.cf-lg-cta--drawer {
+    margin-top: 0.35rem;
+    width: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Calibration Workbench Bands & Backgrounds
+   ───────────────────────────────────────────────────────────── */
+.cf-lg-band {
+    position: relative;
+    padding: 7.5rem 1.375rem 5rem;
+}
+
+.cf-lg-band--light {
+    min-height: 76vh;
+    background-color: var(--cf-soft-white);
+    overflow: hidden;
+}
+
+.cf-lg-optical-field {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Diagonal stripes aligned right across the top viewport where floating nav sits */
+.cf-lg-stripes {
+    position: absolute;
+    inset: -20%;
+    background-image: repeating-linear-gradient(
+        -28deg,
+        rgba(20, 40, 60, 0.11) 0px,
+        rgba(20, 40, 60, 0.11) 6px,
+        transparent 6px,
+        transparent 22px
+    );
+}
+
+.cf-lg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.cf-lg-orb--navy {
+    width: 240px;
+    height: 240px;
+    top: -40px;
+    left: 22%;
+    background: radial-gradient(circle, rgba(20, 40, 60, 0.68) 0%, rgba(20, 40, 60, 0.12) 72%, transparent 100%);
+}
+
+.cf-lg-orb--brown {
+    width: 210px;
+    height: 210px;
+    top: -28px;
+    left: 52%;
+    background: radial-gradient(circle, rgba(167, 123, 91, 0.72) 0%, rgba(119, 84, 61, 0.22) 72%, transparent 100%);
+}
+
+.cf-lg-orb--sage {
+    width: 220px;
+    height: 220px;
+    top: -32px;
+    right: 16%;
+    background: radial-gradient(circle, rgba(169, 184, 164, 0.78) 0%, rgba(169, 184, 164, 0.18) 72%, transparent 100%);
+}
+
+.cf-lg-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.cf-lg-intro {
+    padding-top: 2.25rem;
+    max-width: 780px;
+}
+
+.cf-lg-pill-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.38rem 0.9rem;
+    border-radius: 9999px;
+    background-color: rgba(20, 40, 60, 0.08);
+    border: 1px solid rgba(20, 40, 60, 0.14);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--cf-navy);
+    margin-bottom: 1rem;
+}
+
+.cf-lg-intro h1 {
+    font-size: clamp(2.25rem, 5vw, 3.6rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.06;
+    margin: 0 0 1rem;
+}
+
+.cf-lg-lead {
+    font-size: 1.05rem;
+    color: #3B5268;
+    margin: 0 0 1.75rem;
+}
+
+.cf-lg-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1rem;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(20, 40, 60, 0.12);
+    box-shadow: 0 10px 28px rgba(20, 40, 60, 0.08);
+}
+
+.cf-lg-ctrl-btn {
+    appearance: none;
+    border: 1px solid rgba(20, 40, 60, 0.16);
+    background-color: var(--cf-soft-white);
+    color: var(--cf-navy);
+    font-size: 0.84rem;
+    font-weight: 650;
+    padding: 0.5rem 0.95rem;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.cf-lg-ctrl-btn.is-selected {
+    background-color: var(--cf-navy);
+    color: var(--cf-soft-white);
+    border-color: var(--cf-navy);
+}
+
+.cf-lg-metric-readout {
+    margin-left: auto;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--cf-dark-brown);
+}
+
+/* Band 2: Comparison Grid */
+.cf-lg-band--cool {
+    background-color: var(--cf-cool-gray);
+    padding-top: 5rem;
+}
+
+.cf-lg-section-head {
+    max-width: 720px;
+    margin-bottom: 2.25rem;
+}
+
+.cf-lg-section-head h2 {
+    font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 0.6rem;
+}
+
+.cf-lg-section-head p {
+    color: #465B70;
+    margin: 0;
+}
+
+.cf-lg-compare-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem;
+}
+
+.cf-lg-stage-box {
+    position: relative;
+    min-height: 290px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(20, 40, 60, 0.10);
+    padding: 2.4rem 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cf-lg-backdrop-pattern {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.cf-lg-bg-bars {
+    position: absolute;
+    inset: -25%;
+    background-image: repeating-linear-gradient(
+        35deg,
+        var(--cf-navy) 0px,
+        var(--cf-navy) 10px,
+        transparent 10px,
+        transparent 28px,
+        var(--cf-warm-brown) 28px,
+        var(--cf-warm-brown) 36px,
+        transparent 36px,
+        transparent 54px
+    );
+    opacity: 0.24;
+}
+
+.cf-lg-bg-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(119, 84, 61, 0.45) 2.5px, transparent 2.5px);
+    background-size: 26px 26px;
+}
+
+.cf-lg-bg-wordmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-12deg);
+    font-size: 3.1rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: rgba(20, 40, 60, 0.34);
+    white-space: nowrap;
+}
+
+.cf-lg-tile {
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    min-height: 152px;
+    border-radius: 9999px;
+    isolation: isolate;
+    box-shadow:
+        0 22px 46px rgba(20, 40, 60, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 2.25rem;
+}
+
+.cf-lg-tile--blur {
+    background-color: rgba(247, 248, 250, 0.26);
+    -webkit-backdrop-filter: blur(12px) saturate(1.4);
+    backdrop-filter: blur(12px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.cf-lg-tile-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.28rem;
+}
+
+.cf-lg-tile-kicker {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--cf-dark-brown);
+}
+
+.cf-lg-tile-inner strong {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--cf-navy);
+}
+
+.cf-lg-tile-inner span:last-child {
+    font-size: 0.82rem;
+    color: #2D4359;
+}
+
+/* Band 3: Dark Navy Section */
+.cf-lg-band--dark {
+    min-height: 85vh;
+    background-color: var(--cf-navy);
+    color: var(--cf-soft-white);
+}
+
+.cf-lg-dark-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.cf-lg-band--dark h2 {
+    font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 0.85rem;
+}
+
+.cf-lg-band--dark p {
+    color: rgba(247, 248, 250, 0.78);
+    margin: 0;
+}
+
+.cf-lg-spec-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cf-lg-spec-card {
+    padding: 1.35rem 1.5rem;
+    border-radius: 1.15rem;
+    background-color: rgba(247, 248, 250, 0.06);
+    border: 1px solid rgba(247, 248, 250, 0.14);
+}
+
+.cf-lg-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-bottom: 0.55rem;
+}
+
+.cf-lg-dot--brown {
+    background-color: var(--cf-warm-brown);
+}
+
+.cf-lg-dot--sage {
+    background-color: var(--cf-muted-sage);
+}
+
+.cf-lg-spec-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.35rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 767.98px) {
+    .cf-lg-links,
+    .cf-lg-actions .cf-lg-cta {
+        display: none;
+    }
+
+    .cf-lg-menu-btn {
+        display: inline-flex;
+    }
+
+    .cf-lg-compare-grid,
+    .cf-lg-dark-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cf-lg-tile {
+        min-height: 140px;
+        padding: 1.25rem 1.5rem;
+    }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .cf-lg-link,
+    .cf-lg-specular-layer,
+    .cf-lg-rim-layer {
+        transition: none !important;
+    }
+}

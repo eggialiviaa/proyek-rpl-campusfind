@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusFind — Phase 4A Optical Liquid Glass Navigation Prototype</title>
+    <link rel="icon" href="data:,">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="liquid-glass-nav.css">
+</head>
+<body class="cf-lg-proto">
+
+    <!-- Hidden (0x0 layout, non-display-none so Chromium resolves url(#filter)) Optical SVG Filters -->
+    <svg class="cf-lg-svg-defs" aria-hidden="true" width="0" height="0" focusable="false">
+        <defs>
+            <!-- Primary Floating Navbar Capsule Optical Refraction Filter -->
+            <filter id="cf-lg-nav-filter" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+                <feImage id="cf-lg-nav-map" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="dispMap" />
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1.35" result="softBg" />
+                <feDisplacementMap in="softBg" in2="dispMap" scale="32" xChannelSelector="R" yChannelSelector="G" result="dispR" />
+                <feColorMatrix in="dispR" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="chanR" />
+                <feDisplacementMap in="softBg" in2="dispMap" scale="27" xChannelSelector="R" yChannelSelector="G" result="dispG" />
+                <feColorMatrix in="dispG" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="chanG" />
+                <feDisplacementMap in="softBg" in2="dispMap" scale="22" xChannelSelector="R" yChannelSelector="G" result="dispB" />
+                <feColorMatrix in="dispB" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="chanB" />
+                <feComposite in="chanR" in2="chanG" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="chanRG" />
+                <feComposite in="chanRG" in2="chanB" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="refractedRgb" />
+                <feComposite in="refractedRgb" in2="SourceGraphic" operator="atop" />
+            </filter>
+
+            <!-- Dedicated Comparison Card Optical Filter -->
+            <filter id="cf-lg-tile-filter" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+                <feImage id="cf-lg-tile-map" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" result="tileMap" />
+                <feGaussianBlur in="SourceGraphic" stdDeviation="1.15" result="tileSoft" />
+                <feDisplacementMap in="tileSoft" in2="tileMap" scale="38" xChannelSelector="R" yChannelSelector="G" result="tileDispR" />
+                <feColorMatrix in="tileDispR" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="tR" />
+                <feDisplacementMap in="tileSoft" in2="tileMap" scale="32" xChannelSelector="R" yChannelSelector="G" result="tileDispG" />
+                <feColorMatrix in="tileDispG" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="tG" />
+                <feDisplacementMap in="tileSoft" in2="tileMap" scale="26" xChannelSelector="R" yChannelSelector="G" result="tileDispB" />
+                <feColorMatrix in="tileDispB" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="tB" />
+                <feComposite in="tR" in2="tG" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="tRG" />
+                <feComposite in="tRG" in2="tB" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="tRGB" />
+                <feComposite in="tRGB" in2="SourceGraphic" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- =========================================================
+         FLOATING OPTICAL LIQUID GLASS NAVIGATION CAPSULE (ISOLATED)
+         ========================================================= -->
+    <header class="cf-lg-nav-dock" id="cf-lg-nav-dock">
+        <nav class="cf-lg-capsule" id="cf-lg-capsule" aria-label="Liquid glass prototype navigation">
+            <!-- Optical lens backdrop layer isolated beneath crisp nav typography -->
+            <div class="cf-lg-refraction-layer" id="cf-lg-nav-refraction" aria-hidden="true"></div>
+            <!-- Dynamic cursor-tracked specular meniscus & subtle chromatic edge -->
+            <div class="cf-lg-specular-layer" aria-hidden="true"></div>
+            <div class="cf-lg-rim-layer" aria-hidden="true"></div>
+
+            <div class="cf-lg-content">
+                <a href="#band-light" class="cf-lg-brand">
+                    <span class="cf-lg-brand-mark" aria-hidden="true"></span>
+                    <span>Campus Find</span>
+                </a>
+
+                <ul class="cf-lg-links" id="cf-lg-links">
+                    <li><a href="#band-light" class="cf-lg-link is-active">Overview</a></li>
+                    <li><a href="#band-comparison" class="cf-lg-link">Refraction Test</a></li>
+                    <li><a href="#band-dark" class="cf-lg-link">Workflow</a></li>
+                </ul>
+
+                <div class="cf-lg-actions">
+                    <button type="button" class="cf-lg-menu-btn" id="cf-lg-mobile-toggle" aria-expanded="false" aria-controls="cf-lg-mobile-drawer" aria-label="Toggle prototype menu">
+                        <span></span><span></span>
+                    </button>
+                    <a href="#band-comparison" class="cf-lg-cta">Explore Items</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="cf-lg-mobile-drawer" id="cf-lg-mobile-drawer" hidden>
+            <a href="#band-light" class="cf-lg-drawer-link">Overview</a>
+            <a href="#band-comparison" class="cf-lg-drawer-link">Refraction Test</a>
+            <a href="#band-dark" class="cf-lg-drawer-link">Workflow</a>
+            <a href="#band-comparison" class="cf-lg-cta cf-lg-cta--drawer">Explore Items</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- =====================================================
+             BAND 1: Soft White + High-Frequency Refraction Pattern
+             ===================================================== -->
+        <section class="cf-lg-band cf-lg-band--light" id="band-light">
+            <div class="cf-lg-optical-field" aria-hidden="true">
+                <div class="cf-lg-stripes"></div>
+                <div class="cf-lg-orb cf-lg-orb--navy"></div>
+                <div class="cf-lg-orb cf-lg-orb--brown"></div>
+                <div class="cf-lg-orb cf-lg-orb--sage"></div>
+            </div>
+
+            <div class="cf-lg-container cf-lg-intro">
+                <div class="cf-lg-pill-tag" id="cf-lg-capability-badge">Detecting Optical Support&hellip;</div>
+                <h1>Optical Liquid Glass Prototype.</h1>
+                <p class="cf-lg-lead">
+                    Scroll down so the diagonal calibration stripes, Warm Brown (<code>#A77B5B</code>), Dark Brown (<code>#77543D</code>), Muted Sage (<code>#A9B8A4</code>), and Navy (<code>#14283C</code>) shapes pass directly beneath the floating rounded capsule perimeter. Move your cursor across the glass to inspect live radial highlights.
+                </p>
+
+                <div class="cf-lg-toolbar" role="region" aria-label="Prototype diagnostics">
+                    <button type="button" class="cf-lg-ctrl-btn is-selected" id="cf-lg-mode-optical" data-lens-mode="optical">
+                        Optical SVG Refraction
+                    </button>
+                    <button type="button" class="cf-lg-ctrl-btn" id="cf-lg-mode-fallback" data-lens-mode="fallback">
+                        Simulate Blur-Only Fallback
+                    </button>
+                    <button type="button" class="cf-lg-ctrl-btn" id="cf-lg-contrast-toggle" aria-pressed="false">
+                        Dark Theme Preview
+                    </button>
+                    <span class="cf-lg-metric-readout" id="cf-lg-metric-readout">Map: static precomputed PNG</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             BAND 2: Cool Gray Side-by-Side Optical vs Blur Test
+             ===================================================== -->
+        <section class="cf-lg-band cf-lg-band--cool" id="band-comparison">
+            <div class="cf-lg-container">
+                <div class="cf-lg-section-head">
+                    <h2>Optical Refraction vs Standard CSS Blur.</h2>
+                    <p>
+                        Both capsules sit over identical high-contrast CampusFind calibration stripes and typography. Notice how straight lines bow outward/inward along the curved meniscus on the left tile, while remaining linear under blur-only CSS on the right.
+                    </p>
+                </div>
+
+                <div class="cf-lg-compare-grid">
+                    <!-- Tile A: Genuine Optical SVG Displacement -->
+                    <article class="cf-lg-stage-box">
+                        <div class="cf-lg-backdrop-pattern" aria-hidden="true">
+                            <span class="cf-lg-bg-wordmark">CAMPUS FIND</span>
+                            <div class="cf-lg-bg-bars"></div>
+                            <div class="cf-lg-bg-dots"></div>
+                        </div>
+
+                        <div class="cf-lg-tile cf-lg-tile--optical" id="cf-lg-compare-optical">
+                            <div class="cf-lg-refraction-layer cf-lg-refraction-layer--tile" aria-hidden="true"></div>
+                            <div class="cf-lg-specular-layer" aria-hidden="true"></div>
+                            <div class="cf-lg-rim-layer" aria-hidden="true"></div>
+                            <div class="cf-lg-tile-inner">
+                                <span class="cf-lg-tile-kicker">feDisplacementMap + Chromatic Rim</span>
+                                <strong>Optical Liquid Glass</strong>
+                                <span>Edge lines visibly bend through bezel normal map while text stays sharp.</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tile B: Standard CSS Blur-Only Control -->
+                    <article class="cf-lg-stage-box">
+                        <div class="cf-lg-backdrop-pattern" aria-hidden="true">
+                            <span class="cf-lg-bg-wordmark">CAMPUS FIND</span>
+                            <div class="cf-lg-bg-bars"></div>
+                            <div class="cf-lg-bg-dots"></div>
+                        </div>
+
+                        <div class="cf-lg-tile cf-lg-tile--blur" id="cf-lg-compare-blur">
+                            <div class="cf-lg-tile-inner">
+                                <span class="cf-lg-tile-kicker">backdrop-filter: blur() only</span>
+                                <strong>Standard Glassmorphism</strong>
+                                <span>Background frosts softly without any optical edge bending or dispersion.</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================
+             BAND 3: Dark Navy (#14283C) Scroll & Contrast Stress Test
+             ===================================================== -->
+        <section class="cf-lg-band cf-lg-band--dark" id="band-dark">
+            <div class="cf-lg-container cf-lg-dark-grid">
+                <div>
+                    <h2>High-Contrast Dark Surface Test.</h2>
+                    <p>
+                        Scrolling across Soft White (<code>#F7F8FA</code>), Cool Gray (<code>#F0F3F6</code>), and Deep Navy (<code>#14283C</code>) verifies adaptive legibility, zero SVG scroll flicker, and clean compositor performance without continuous filter regeneration.
+                    </p>
+                </div>
+
+                <div class="cf-lg-spec-cards">
+                    <div class="cf-lg-spec-card">
+                        <span class="cf-lg-dot cf-lg-dot--brown"></span>
+                        <h3>Static Precomputed Map</h3>
+                        <p>Generated once per mount/resize threshold; scroll and pointer tracking touch CSS variables only.</p>
+                    </div>
+                    <div class="cf-lg-spec-card">
+                        <span class="cf-lg-dot cf-lg-dot--sage"></span>
+                        <h3>Progressive Fallback</h3>
+                        <p>Automatic blur + specular glass fallback for Safari/Firefox and reduced-motion pause guard.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="liquid-glass-nav.js"></script>
+</body>
+</html>
