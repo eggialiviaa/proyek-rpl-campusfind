@@ -1,0 +1,55 @@
+# ==========================================================
+# Campus Find — Git Ignore Rules
+# ==========================================================
+
+# Environment & Secrets (CRITICAL)
+.env
+.env.backup
+.env.local
+.env.*.local
+
+# Dependency directories
+/vendor/
+/node_modules/
+
+# Storage & Runtime Data (do not commit runtime files)
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/uploads/*
+!/storage/uploads/.gitkeep
+!/storage/uploads/claims/.gitkeep
+!/storage/uploads/found_reports/.gitkeep
+!/storage/uploads/lost_reports/.gitkeep
+/storage/backups/*
+/storage/scratch/*
+/storage/temp_imports/*
+/scratch/
+
+# Database dumps and local database exports
+*.sql.gz
+*.sql.bak
+storage/backups/*.sql
+storage/backups/*.json
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor Configurations
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Temporary & Cache Files
+*.log
+*.tmp
+*.temp
+ai_models_cache.json
+cfind_daily_budget.json
+
+.phpunit.cache/
+.phpunit.result.cache

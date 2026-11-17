@@ -1,0 +1,4978 @@
+/* =============================================================
+   Campus Find — Landing Page Styles (Phase 0 Tokens + Phase 1 Hero)
+   Scoped exclusively to body.cf-landing (never alters app.css)
+   Approved Palette: Primary Navy (#14283C), Soft White (#F7F8FA),
+   Cool Gray (#F0F3F6), Dark Sections (#14283C)
+   ============================================================= */
+
+body.cf-landing {
+    /* Approved Landing Visual Tokens */
+    --cf-landing-navy:            #14283C;
+    --cf-landing-navy-deep:       #0E1D2C;
+    --cf-landing-navy-soft:       #1E3852;
+    --cf-landing-soft-white:      #F7F8FA;
+    --cf-landing-white:           #FFFFFF;
+    --cf-landing-cool-gray:       #F0F3F6;
+    --cf-landing-cool-gray-alt:   #E2E8F0;
+    --cf-landing-dark-bg:         #14283C;
+
+    /* Text & Surface Semantics */
+    --cf-landing-text-primary:    #14283C;
+    --cf-landing-text-muted:      #516273;
+    --cf-landing-text-on-dark:    #F7F8FA;
+    --cf-landing-muted-on-dark:   rgba(247, 248, 250, 0.74);
+
+    /* Muted Accents & Borders */
+    --cf-landing-accent-slate:    #3B5875;
+    --cf-landing-accent-ice:      #DCE6F0;
+    --cf-landing-warm-brown:      #A77B5B;
+    --cf-landing-dark-brown:      #77543D;
+    --cf-landing-muted-sage:      #A9B8A4;
+    --cf-landing-border:          rgba(20, 40, 60, 0.12);
+    --cf-landing-border-dark:     rgba(247, 248, 250, 0.14);
+
+    /* Elevation & Radii */
+    --cf-landing-radius-sm:       0.75rem;
+    --cf-landing-radius-card:     1.25rem;
+    --cf-landing-radius-pill:     9999px;
+    --cf-landing-shadow-sm:       0 6px 20px rgba(20, 40, 60, 0.06);
+    --cf-landing-shadow-md:       0 14px 36px rgba(20, 40, 60, 0.10);
+    --cf-landing-shadow-lg:       0 24px 56px rgba(14, 29, 44, 0.16);
+
+    background-color: var(--cf-landing-soft-white);
+    color: var(--cf-landing-text-primary);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Phase 1: Light Editorial Hero Experience
+   ───────────────────────────────────────────────────────────── */
+body.cf-landing .cf-hero {
+    position: relative;
+    background-color: var(--cf-landing-soft-white);
+    color: var(--cf-landing-navy);
+    overflow: hidden;
+    padding: clamp(3.5rem, 6vw, 5.75rem) 0 clamp(4rem, 7vw, 6.5rem);
+    min-height: clamp(560px, calc(100vh - 76px), 780px);
+    display: flex;
+    align-items: center;
+}
+
+body.cf-landing .cf-hero-container {
+    max-width: 1320px;
+}
+
+body.cf-landing .cf-hero-row {
+    row-gap: 3rem;
+}
+
+/* Left Column: Oversized Editorial Typography */
+body.cf-landing .cf-hero-copy {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+}
+
+/* Batch 2: Eyebrow editorial badge */
+body.cf-landing .cf-hero-scrub--eyebrow {
+    margin-bottom: 0.95rem;
+}
+
+body.cf-landing .cf-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.80rem;
+    font-weight: 700;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    color: var(--cf-landing-navy);
+    background: rgba(20, 40, 60, 0.05);
+    border: 1px solid rgba(20, 40, 60, 0.10);
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--cf-landing-radius-pill);
+    will-change: transform, opacity;
+    animation: cfHeroFadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.00s both;
+}
+
+body.cf-landing .cf-hero-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #2E7D32;
+    display: inline-block;
+    box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.20);
+}
+
+body.cf-landing .cf-hero-title {
+    margin: 0 0 1.5rem;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: clamp(3.1rem, 6.2vw, 5.45rem);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+    color: var(--cf-landing-navy);
+}
+
+body.cf-landing .cf-hero-line-clip {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.08em;
+    margin-bottom: -0.04em;
+}
+
+body.cf-landing .cf-hero-line {
+    display: inline-block;
+    will-change: transform, opacity;
+    animation: cfHeroLineReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+body.cf-landing .cf-hero-line--1 {
+    animation-delay: 0.08s;
+}
+
+body.cf-landing .cf-hero-line--2 {
+    animation-delay: 0.17s;
+}
+
+body.cf-landing .cf-hero-subtitle {
+    margin: 0 0 2.35rem;
+    max-width: 30rem;
+    font-size: clamp(1.08rem, 1.55vw, 1.28rem);
+    font-weight: 400;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+    color: var(--cf-landing-text-muted);
+    animation: cfHeroFadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.26s both;
+}
+
+body.cf-landing .cf-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem 1rem;
+}
+
+body.cf-landing .cf-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.95rem 1.75rem;
+    border-radius: var(--cf-landing-radius-pill);
+    font-size: 0.96rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    line-height: 1.2;
+    transition:
+        transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+        background-color 0.22s ease,
+        color 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.25s ease;
+}
+
+body.cf-landing .cf-hero-btn--primary {
+    background-color: var(--cf-landing-navy);
+    color: var(--cf-landing-white);
+    border: 1.5px solid var(--cf-landing-navy);
+    box-shadow: 0 12px 26px rgba(20, 40, 60, 0.18);
+    will-change: transform, opacity;
+    animation: cfHeroFadeUp 0.70s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+body.cf-landing .cf-hero-btn--primary:hover,
+body.cf-landing .cf-hero-btn--primary:focus-visible {
+    background-color: var(--cf-landing-navy-deep);
+    border-color: var(--cf-landing-navy-deep);
+    color: var(--cf-landing-white);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 34px rgba(14, 29, 44, 0.24);
+}
+
+body.cf-landing .cf-hero-btn-arrow {
+    display: inline-block;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.cf-landing .cf-hero-btn--primary:hover .cf-hero-btn-arrow {
+    transform: translateX(4px);
+}
+
+body.cf-landing .cf-hero-btn--secondary {
+    background-color: transparent;
+    color: var(--cf-landing-navy);
+    border: 1.5px solid rgba(20, 40, 60, 0.26);
+    will-change: transform, opacity;
+    animation: cfHeroFadeUp 0.70s cubic-bezier(0.22, 1, 0.36, 1) 0.44s both;
+}
+
+body.cf-landing .cf-hero-btn--secondary:hover,
+body.cf-landing .cf-hero-btn--secondary:focus-visible {
+    background-color: rgba(20, 40, 60, 0.05);
+    border-color: var(--cf-landing-navy);
+    color: var(--cf-landing-navy);
+    transform: translateY(-2px);
+}
+
+body.cf-landing .cf-hero-btn:focus-visible {
+    outline: 3px solid rgba(20, 40, 60, 0.28);
+    outline-offset: 3px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Right Column: Cinematic Floating 3D Product Stage
+   ───────────────────────────────────────────────────────────── */
+body.cf-landing .cf-hero-visual {
+    position: relative;
+    z-index: 1;
+}
+
+body.cf-landing .cf-hero-stage {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    height: clamp(390px, 44vw, 540px);
+    margin-left: auto;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Living Ambient Environment: Subtly Breathing Diffused Light Fields */
+body.cf-landing .cf-hero-ambient-env {
+    position: absolute;
+    inset: -10% -12%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+    will-change: transform;
+    transform: translate3d(var(--cf-hero-glow-x, 0px), var(--cf-hero-glow-y, 0px), 0);
+    transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.cf-landing .cf-hero-ambient-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+/* Cognac warm glow behind wallet / bottom left */
+body.cf-landing .cf-hero-ambient-glow--cognac {
+    bottom: 4%;
+    left: 6%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(circle, rgba(196, 126, 74, 0.20) 0%, rgba(196, 126, 74, 0.05) 55%, transparent 75%);
+    animation: cfHeroGlowBreatheCognac 13.5s ease-in-out infinite alternate;
+}
+
+/* Sage soft botanical glow behind earbuds / top left */
+body.cf-landing .cf-hero-ambient-glow--sage {
+    top: 2%;
+    left: 2%;
+    width: 44%;
+    height: 44%;
+    background: radial-gradient(circle, rgba(142, 168, 144, 0.22) 0%, rgba(142, 168, 144, 0.06) 55%, transparent 75%);
+    animation: cfHeroGlowBreatheSage 15.0s ease-in-out infinite alternate;
+}
+
+/* Focal soft luminous pearl glow behind tumbler / notebook / center-right */
+body.cf-landing .cf-hero-ambient-glow--focal {
+    top: 8%;
+    right: 4%;
+    width: 54%;
+    height: 54%;
+    background: radial-gradient(circle, rgba(195, 215, 235, 0.30) 0%, rgba(195, 215, 235, 0.08) 60%, transparent 80%);
+    animation: cfHeroGlowBreatheFocal 16.5s ease-in-out infinite alternate;
+}
+
+body.cf-landing .cf-hero-slot {
+    position: absolute;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+body.cf-landing .cf-hero-entrance {
+    will-change: transform, opacity;
+}
+
+body.cf-landing .cf-hero-float {
+    will-change: transform;
+}
+
+body.cf-landing .cf-hero-object-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 26px 34px rgba(20, 40, 60, 0.16))
+            drop-shadow(0 8px 14px rgba(20, 40, 60, 0.08));
+}
+
+/* Interim 3-object fallback composition (if fewer than 5 assets) */
+body.cf-landing .cf-hero-stage--interim .cf-hero-slot--notebook {
+    top: 3%;
+    right: 6%;
+    width: 47%;
+    z-index: 1;
+}
+body.cf-landing .cf-hero-stage--interim .cf-hero-slot--wallet {
+    bottom: 8%;
+    left: 4%;
+    width: 45%;
+    z-index: 2;
+}
+body.cf-landing .cf-hero-stage--interim .cf-hero-slot--keys {
+    bottom: 2%;
+    right: 12%;
+    width: 34%;
+    z-index: 3;
+}
+
+/* Complete 5-object spatial composition (notebook, tumbler, wallet, earbuds, keys) */
+body.cf-landing .cf-hero-stage--complete .cf-hero-slot--notebook {
+    top: 6%;
+    left: 24%;
+    width: 44%;
+    z-index: 1;
+}
+body.cf-landing .cf-hero-stage--complete .cf-hero-slot--tumbler {
+    top: 8%;
+    right: 4%;
+    width: 27%;
+    z-index: 2;
+}
+body.cf-landing .cf-hero-stage--complete .cf-hero-slot--wallet {
+    bottom: 12%;
+    left: 5%;
+    width: 42%;
+    z-index: 3;
+}
+body.cf-landing .cf-hero-stage--complete .cf-hero-slot--earbuds {
+    top: 4%;
+    left: 3%;
+    width: 27%;
+    z-index: 4;
+}
+body.cf-landing .cf-hero-stage--complete .cf-hero-slot--keys {
+    bottom: 3%;
+    right: 14%;
+    width: 30%;
+    z-index: 5;
+}
+
+/* Staggered depth-based entrance timings for 5 objects (tight 70-110ms progression) */
+body.cf-landing .cf-hero-slot--notebook .cf-hero-entrance {
+    animation: cfHeroObjEnterNotebook 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.52s both;
+}
+body.cf-landing .cf-hero-slot--wallet .cf-hero-entrance {
+    animation: cfHeroObjEnterWallet 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.60s both;
+}
+body.cf-landing .cf-hero-slot--tumbler .cf-hero-entrance {
+    animation: cfHeroObjEnterTumbler 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.69s both;
+}
+body.cf-landing .cf-hero-slot--earbuds .cf-hero-entrance {
+    animation: cfHeroObjEnterEarbuds 0.92s cubic-bezier(0.22, 1, 0.36, 1) 0.78s both;
+}
+body.cf-landing .cf-hero-slot--keys .cf-hero-entrance {
+    animation: cfHeroObjEnterKeys 0.92s cubic-bezier(0.22, 1, 0.36, 1) 0.87s both;
+}
+
+/* Gentle continuous floating motion (independent phases, subtle studio drift) */
+body.cf-landing .cf-hero-slot--notebook .cf-hero-float {
+    animation: cfHeroFloatNotebook 7.6s ease-in-out 1.5s infinite;
+}
+body.cf-landing .cf-hero-slot--wallet .cf-hero-float {
+    animation: cfHeroFloatWallet 6.4s ease-in-out 1.6s infinite;
+}
+body.cf-landing .cf-hero-slot--tumbler .cf-hero-float {
+    animation: cfHeroFloatTumbler 7.2s ease-in-out 1.7s infinite;
+}
+body.cf-landing .cf-hero-slot--earbuds .cf-hero-float {
+    animation: cfHeroFloatEarbuds 6.0s ease-in-out 1.8s infinite;
+}
+body.cf-landing .cf-hero-slot--keys .cf-hero-float {
+    animation: cfHeroFloatKeys 5.6s ease-in-out 1.9s infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Keyframes
+   ───────────────────────────────────────────────────────────── */
+@keyframes cfHeroLineReveal {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 108%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes cfHeroFadeUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes cfHeroGlowBreatheCognac {
+    0% {
+        transform: translate3d(0, 0, 0) scale(0.94);
+        opacity: 0.70;
+    }
+    100% {
+        transform: translate3d(12px, -8px, 0) scale(1.06);
+        opacity: 0.95;
+    }
+}
+
+@keyframes cfHeroGlowBreatheSage {
+    0% {
+        transform: translate3d(0, 0, 0) scale(0.92);
+        opacity: 0.68;
+    }
+    100% {
+        transform: translate3d(-10px, 10px, 0) scale(1.08);
+        opacity: 0.92;
+    }
+}
+
+@keyframes cfHeroGlowBreatheFocal {
+    0% {
+        transform: translate3d(0, 0, 0) scale(0.96);
+        opacity: 0.74;
+    }
+    100% {
+        transform: translate3d(8px, 12px, 0) scale(1.05);
+        opacity: 0.98;
+    }
+}
+
+@keyframes cfHeroObjEnterNotebook {
+    from {
+        opacity: 0;
+        transform: translate3d(32px, 28px, 0) scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes cfHeroObjEnterWallet {
+    from {
+        opacity: 0;
+        transform: translate3d(-24px, 38px, 0) scale(0.90);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes cfHeroObjEnterTumbler {
+    from {
+        opacity: 0;
+        transform: translate3d(22px, -32px, 0) scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes cfHeroObjEnterEarbuds {
+    from {
+        opacity: 0;
+        transform: translate3d(-26px, -18px, 0) scale(0.88);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes cfHeroObjEnterKeys {
+    from {
+        opacity: 0;
+        transform: translate3d(18px, 36px, 0) scale(0.88);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes cfHeroFloatNotebook {
+    0%, 100% {
+        transform: translate3d(0, 0px, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate3d(0, -9px, 0) rotate(1.1deg);
+    }
+}
+
+@keyframes cfHeroFloatWallet {
+    0%, 100% {
+        transform: translate3d(0, 0px, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate3d(0, -11px, 0) rotate(-1.3deg);
+    }
+}
+
+@keyframes cfHeroFloatTumbler {
+    0%, 100% {
+        transform: translate3d(0, 0px, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate3d(0, -10px, 0) rotate(0.9deg);
+    }
+}
+
+@keyframes cfHeroFloatEarbuds {
+    0%, 100% {
+        transform: translate3d(0, 0px, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate3d(0, -8px, 0) rotate(-1.2deg);
+    }
+}
+
+@keyframes cfHeroFloatKeys {
+    0%, 100% {
+        transform: translate3d(0, 0px, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate3d(0, -9px, 0) rotate(1.7deg);
+    }
+}
+
+/* Pause Hero animations when tab is hidden */
+body.is-page-hidden .cf-hero-ambient-glow,
+body.is-page-hidden .cf-hero-float,
+body.is-page-hidden .cf-hero-entrance,
+body.is-page-hidden .cf-hero-line,
+body.is-page-hidden .cf-hero-eyebrow,
+body.is-page-hidden .cf-hero-subtitle,
+body.is-page-hidden .cf-hero-btn {
+    animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.cf-landing .cf-hero-ambient-glow,
+    body.cf-landing .cf-hero-float,
+    body.cf-landing .cf-hero-entrance,
+    body.cf-landing .cf-hero-line,
+    body.cf-landing .cf-hero-eyebrow,
+    body.cf-landing .cf-hero-subtitle,
+    body.cf-landing .cf-hero-btn {
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+    body.cf-landing .cf-hero-ambient-env {
+        transform: none !important;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Responsive Breakpoints
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 991.98px) {
+    body.cf-landing .cf-hero {
+        min-height: auto;
+        padding: 3.25rem 0 3.75rem;
+    }
+
+    body.cf-landing .cf-hero-stage {
+        margin: 0 auto;
+        max-width: 480px;
+        height: 360px;
+    }
+
+    body.cf-landing .cf-hero-stage--complete .cf-hero-slot--notebook {
+        top: 4%;
+        left: 22%;
+        width: 42%;
+    }
+    body.cf-landing .cf-hero-stage--complete .cf-hero-slot--tumbler {
+        top: 6%;
+        right: 3%;
+        width: 28%;
+    }
+    body.cf-landing .cf-hero-stage--complete .cf-hero-slot--wallet {
+        bottom: 10%;
+        left: 4%;
+        width: 40%;
+    }
+    body.cf-landing .cf-hero-stage--complete .cf-hero-slot--earbuds {
+        top: 2%;
+        left: 2%;
+        width: 26%;
+    }
+    body.cf-landing .cf-hero-stage--complete .cf-hero-slot--keys {
+        bottom: 2%;
+        right: 12%;
+        width: 28%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Minor Hero mobile refinement: 22px horizontal gutters prevent edge-crowding */
+    body.cf-landing .cf-hero-container,
+    body.cf-landing .cf-recent-container {
+        padding-left: 1.375rem;
+        padding-right: 1.375rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    body.cf-landing .cf-hero {
+        padding: 2.5rem 0 3.25rem;
+    }
+
+    body.cf-landing .cf-hero-title {
+        font-size: clamp(2.65rem, 11.5vw, 3.35rem);
+        margin-bottom: 1.15rem;
+    }
+
+    body.cf-landing .cf-hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.75rem;
+    }
+
+    body.cf-landing .cf-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    body.cf-landing .cf-hero-btn {
+        width: 100%;
+        padding: 0.92rem 1.35rem;
+    }
+
+    body.cf-landing .cf-hero-stage {
+        max-width: 340px;
+        height: 295px;
+    }
+
+    body.cf-landing .cf-hero-stage--interim .cf-hero-slot--notebook {
+        top: 0%;
+        right: 3%;
+        width: 49%;
+    }
+
+    body.cf-landing .cf-hero-stage--interim .cf-hero-slot--wallet {
+        bottom: 8%;
+        left: 2%;
+        width: 47%;
+    }
+
+    body.cf-landing .cf-hero-stage--interim .cf-hero-slot--keys {
+        bottom: 0%;
+        right: 9%;
+        width: 36%;
+    }
+
+    body.cf-landing .cf-hero-stage--complete .cf-hero-slot--notebook {
+        top: 2%;
+        left: 20%;
+        width: 44%;
+    }
+
+    body.cf-landing .cf-hero-stage--complete .cf-hero-slot--tumbler {
+        top: 5%;
+        right: 2%;
+        width: 28%;
+    }
+
+    body.cf-landing .cf-hero-stage--complete .cf-hero-slot--wallet {
+        bottom: 8%;
+        left: 3%;
+        width: 42%;
+    }
+
+    body.cf-landing .cf-hero-stage--complete .cf-hero-slot--earbuds {
+        top: 0%;
+        left: 1%;
+        width: 27%;
+    }
+
+    body.cf-landing .cf-hero-stage--complete .cf-hero-slot--keys {
+        bottom: 0%;
+        right: 10%;
+        width: 30%;
+    }
+}
+
+/* =============================================================
+   Phase 2: Recently Reported Editorial Carousel & Compact Modal
+   Background: Cool Gray (#F0F3F6), Surface: White (#FFFFFF)
+   ============================================================= */
+
+body.cf-landing .cf-recent {
+    position: relative;
+    background-color: var(--cf-landing-cool-gray);
+    color: var(--cf-landing-navy);
+    padding: clamp(4.25rem, 6.5vw, 6.25rem) 0;
+    border-top: 1px solid rgba(20, 40, 60, 0.06);
+}
+
+body.cf-landing .cf-recent-container {
+    max-width: 1320px;
+}
+
+body.cf-landing .cf-recent-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: clamp(2rem, 3.2vw, 2.75rem);
+}
+
+body.cf-landing .cf-recent-heading-wrap {
+    max-width: 560px;
+}
+
+body.cf-landing .cf-recent-title {
+    font-size: clamp(2.15rem, 3.8vw, 3.1rem);
+    font-weight: 800;
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    color: var(--cf-landing-navy);
+    margin: 0 0 0.6rem;
+}
+
+body.cf-landing .cf-recent-subtitle {
+    font-size: clamp(1rem, 1.35vw, 1.125rem);
+    line-height: 1.6;
+    color: var(--cf-landing-text-muted);
+    margin: 0;
+}
+
+body.cf-landing .cf-recent-controls-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+}
+
+body.cf-landing .cf-recent-filters {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.28rem;
+    border-radius: var(--cf-landing-radius-pill);
+    background-color: rgba(20, 40, 60, 0.06);
+    border: 1px solid rgba(20, 40, 60, 0.08);
+    gap: 0.2rem;
+}
+
+body.cf-landing .cf-recent-filter-btn {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--cf-landing-text-muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 0.52rem 1.05rem;
+    border-radius: var(--cf-landing-radius-pill);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.cf-landing .cf-recent-filter-btn:hover {
+    color: var(--cf-landing-navy);
+}
+
+body.cf-landing .cf-recent-filter-btn:focus-visible {
+    outline: 2px solid var(--cf-landing-navy);
+    outline-offset: 2px;
+}
+
+body.cf-landing .cf-recent-filter-btn.is-active {
+    background-color: var(--cf-landing-navy);
+    color: var(--cf-landing-soft-white);
+    box-shadow: 0 4px 12px rgba(20, 40, 60, 0.16);
+}
+
+body.cf-landing .cf-recent-nav-btns {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+body.cf-landing .cf-recent-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(20, 40, 60, 0.14);
+    background-color: var(--cf-landing-white);
+    color: var(--cf-landing-navy);
+    font-size: 1.05rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.cf-landing .cf-recent-arrow:hover:not(:disabled) {
+    background-color: var(--cf-landing-navy);
+    color: var(--cf-landing-soft-white);
+    border-color: var(--cf-landing-navy);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(20, 40, 60, 0.14);
+}
+
+body.cf-landing .cf-recent-arrow:focus-visible {
+    outline: 2px solid var(--cf-landing-navy);
+    outline-offset: 2px;
+}
+
+body.cf-landing .cf-recent-arrow:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Gated Editorial Showcase (Guests when PUBLIC_BROWSE_ENABLED=false) */
+body.cf-landing .cf-recent-gated {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(1.75rem, 3.5vw, 3.25rem);
+    align-items: center;
+    background-color: var(--cf-landing-white);
+    border: 1px solid rgba(20, 40, 60, 0.08);
+    border-radius: 1.5rem;
+    padding: clamp(1.75rem, 3.5vw, 3rem);
+    box-shadow: var(--cf-landing-shadow-md);
+}
+
+body.cf-landing .cf-recent-gated-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.38rem 0.85rem;
+    border-radius: var(--cf-landing-radius-pill);
+    background-color: var(--cf-landing-cool-gray);
+    color: var(--cf-landing-navy);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1.1rem;
+}
+
+body.cf-landing .cf-recent-gated-title {
+    font-size: clamp(1.45rem, 2.3vw, 1.95rem);
+    font-weight: 750;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--cf-landing-navy);
+    margin: 0 0 0.85rem;
+}
+
+body.cf-landing .cf-recent-gated-desc {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--cf-landing-text-muted);
+    margin: 0 0 1.6rem;
+    max-width: 52ch;
+}
+
+body.cf-landing .cf-recent-gated-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--cf-landing-soft-white);
+    border: 1px solid rgba(20, 40, 60, 0.07);
+    border-radius: 1.15rem;
+    padding: 1.25rem;
+}
+
+body.cf-landing .cf-recent-pillar {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+}
+
+body.cf-landing .cf-recent-pillar-icon {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 0.75rem;
+    background-color: var(--cf-landing-white);
+    border: 1px solid rgba(20, 40, 60, 0.08);
+    color: var(--cf-landing-navy);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+body.cf-landing .cf-recent-pillar-label {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--cf-landing-navy);
+    margin-bottom: 0.18rem;
+}
+
+body.cf-landing .cf-recent-pillar-text {
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: var(--cf-landing-text-muted);
+    margin: 0;
+}
+
+/* Shared Editorial Carousel Track & Viewport */
+body.cf-landing .cf-recent-carousel {
+    --cf-recent-gap: 1.5rem;
+    position: relative;
+    outline: none;
+}
+
+body.cf-landing .cf-recent-carousel:focus-visible .cf-recent-viewport {
+    box-shadow: 0 0 0 2px rgba(20, 40, 60, 0.25);
+    border-radius: var(--cf-landing-radius-card);
+}
+
+body.cf-landing .cf-recent-viewport {
+    overflow: hidden;
+    padding: 0.5rem 0.25rem 1.25rem;
+    margin: -0.5rem -0.25rem 0;
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+}
+
+body.cf-landing .cf-recent-track {
+    display: flex;
+    gap: var(--cf-recent-gap);
+    align-items: stretch;
+    transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.18s ease;
+    will-change: transform;
+}
+
+body.cf-landing .cf-recent-track.is-dragging {
+    transition: none;
+    cursor: grabbing;
+}
+
+body.cf-landing .cf-recent-track.is-switching {
+    opacity: 0.32;
+}
+
+/* 3 large editorial cards on desktop */
+body.cf-landing .cf-recent-slide {
+    flex: 0 0 calc((100% - (2 * var(--cf-recent-gap))) / 3);
+    min-width: 0;
+    display: flex;
+}
+
+body.cf-landing .cf-recent-card {
+    appearance: none;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--cf-landing-white);
+    border: 1px solid rgba(20, 40, 60, 0.08);
+    border-radius: var(--cf-landing-radius-card);
+    overflow: hidden;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: var(--cf-landing-shadow-sm);
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+body.cf-landing .cf-recent-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--cf-landing-shadow-md);
+    border-color: rgba(20, 40, 60, 0.16);
+}
+
+body.cf-landing .cf-recent-card:focus-visible {
+    outline: 2px solid var(--cf-landing-navy);
+    outline-offset: 2px;
+}
+
+/* 5:4 Image / Placeholder Region */
+body.cf-landing .cf-recent-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    background-color: #E7EDF3;
+    overflow: hidden;
+}
+
+body.cf-landing .cf-recent-media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+}
+
+body.cf-landing .cf-recent-card:hover .cf-recent-media-img {
+    transform: scale(1.045);
+}
+
+body.cf-landing .cf-recent-placeholder {
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.45rem;
+    background: linear-gradient(155deg, #E8EEF4 0%, #F4F7FA 100%);
+    color: var(--cf-landing-navy);
+}
+
+body.cf-landing .cf-recent-placeholder--protected {
+    background: linear-gradient(155deg, #E3EAF2 0%, #EEF3F8 100%);
+}
+
+body.cf-landing .cf-recent-placeholder-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: 1rem;
+    background-color: var(--cf-landing-white);
+    border: 1px solid rgba(20, 40, 60, 0.08);
+    box-shadow: 0 8px 20px rgba(20, 40, 60, 0.06);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    color: var(--cf-landing-navy);
+    margin-bottom: 0.2rem;
+}
+
+body.cf-landing .cf-recent-placeholder-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--cf-landing-navy);
+}
+
+body.cf-landing .cf-recent-placeholder-sub {
+    font-size: 0.8rem;
+    color: var(--cf-landing-text-muted);
+}
+
+body.cf-landing .cf-recent-type-pill {
+    position: absolute;
+    top: 0.9rem;
+    left: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.32rem 0.8rem;
+    border-radius: var(--cf-landing-radius-pill);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+body.cf-landing .cf-recent-type-pill.is-lost {
+    background-color: rgba(20, 40, 60, 0.90);
+    color: var(--cf-landing-soft-white);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+body.cf-landing .cf-recent-type-pill.is-found {
+    background-color: rgba(247, 248, 250, 0.95);
+    color: var(--cf-landing-navy);
+    border: 1px solid rgba(20, 40, 60, 0.16);
+    box-shadow: 0 4px 12px rgba(20, 40, 60, 0.08);
+}
+
+/* Card Body */
+body.cf-landing .cf-recent-card-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1.35rem 1.35rem;
+    gap: 0.45rem;
+}
+
+body.cf-landing .cf-recent-card-status {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--cf-landing-accent-slate);
+    letter-spacing: 0.01em;
+}
+
+body.cf-landing .cf-recent-card-title {
+    font-size: 1.15rem;
+    font-weight: 750;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: var(--cf-landing-navy);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+body.cf-landing .cf-recent-card-meta {
+    margin-top: auto;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(20, 40, 60, 0.07);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: 0.82rem;
+    color: var(--cf-landing-text-muted);
+}
+
+body.cf-landing .cf-recent-meta-loc {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.32rem;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+body.cf-landing .cf-recent-meta-date {
+    flex-shrink: 0;
+    font-weight: 500;
+}
+
+/* Empty State inside Track */
+body.cf-landing .cf-recent-empty-card {
+    width: 100%;
+    background-color: var(--cf-landing-white);
+    border: 1px dashed rgba(20, 40, 60, 0.16);
+    border-radius: var(--cf-landing-radius-card);
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+body.cf-landing .cf-recent-empty-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 1rem;
+    background-color: var(--cf-landing-cool-gray);
+    color: var(--cf-landing-navy);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 0.85rem;
+}
+
+body.cf-landing .cf-recent-empty-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--cf-landing-navy);
+    margin: 0 0 0.35rem;
+}
+
+body.cf-landing .cf-recent-empty-text {
+    font-size: 0.92rem;
+    color: var(--cf-landing-text-muted);
+    margin: 0;
+}
+
+/* Footer Dots & Link */
+body.cf-landing .cf-recent-footer-bar {
+    margin-top: 1.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+body.cf-landing .cf-recent-dots {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+body.cf-landing .cf-recent-dot {
+    appearance: none;
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--cf-landing-radius-pill);
+    background-color: rgba(20, 40, 60, 0.22);
+    cursor: pointer;
+    transition: width 0.22s ease, background-color 0.22s ease;
+}
+
+body.cf-landing .cf-recent-dot.is-active {
+    width: 24px;
+    background-color: var(--cf-landing-navy);
+}
+
+body.cf-landing .cf-recent-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.92rem;
+    font-weight: 650;
+    color: var(--cf-landing-navy);
+    text-decoration: none;
+}
+
+body.cf-landing .cf-recent-all-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Compact Preview Modal */
+body.cf-landing.cf-recent-modal-open {
+    overflow: hidden;
+}
+
+body.cf-landing .cf-recent-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1055;
+    background-color: rgba(14, 29, 44, 0.58);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+}
+
+body.cf-landing .cf-recent-modal-backdrop[hidden] {
+    display: none !important;
+}
+
+body.cf-landing .cf-recent-modal-dialog {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    max-height: calc(100vh - 2.5rem);
+    overflow-y: auto;
+    background-color: var(--cf-landing-white);
+    border: 1px solid rgba(20, 40, 60, 0.10);
+    border-radius: 1.35rem;
+    box-shadow: var(--cf-landing-shadow-lg);
+}
+
+body.cf-landing .cf-recent-modal-close {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(20, 40, 60, 0.14);
+    background-color: rgba(255, 255, 255, 0.94);
+    color: var(--cf-landing-navy);
+    font-size: 1.4rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(20, 40, 60, 0.12);
+}
+
+body.cf-landing .cf-recent-modal-close:hover {
+    background-color: var(--cf-landing-navy);
+    color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing .cf-recent-modal-media {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background-color: #E7EDF3;
+    overflow: hidden;
+}
+
+body.cf-landing .cf-recent-modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+body.cf-landing .cf-recent-modal-content {
+    padding: 1.45rem 1.55rem 1.65rem;
+}
+
+body.cf-landing .cf-recent-modal-badges {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.7rem;
+}
+
+body.cf-landing .cf-recent-modal-badges .cf-recent-type-pill {
+    position: static;
+}
+
+body.cf-landing .cf-recent-modal-status {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--cf-landing-accent-slate);
+}
+
+body.cf-landing .cf-recent-modal-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--cf-landing-navy);
+    margin: 0 0 0.85rem;
+}
+
+body.cf-landing .cf-recent-modal-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem 1.15rem;
+    font-size: 0.84rem;
+    color: var(--cf-landing-text-muted);
+    padding-bottom: 0.9rem;
+    margin-bottom: 0.95rem;
+    border-bottom: 1px solid rgba(20, 40, 60, 0.08);
+}
+
+body.cf-landing .cf-recent-modal-desc {
+    font-size: 0.95rem;
+    line-height: 1.62;
+    color: var(--cf-landing-navy-soft);
+    margin: 0 0 1.4rem;
+}
+
+body.cf-landing .cf-recent-modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+body.cf-landing .cf-recent-modal-cta,
+body.cf-landing .cf-recent-modal-dismiss {
+    padding: 0.78rem 1.3rem;
+    font-size: 0.92rem;
+}
+
+/* Phase 2 Responsive Carousel Breakpoints */
+@media (max-width: 991.98px) {
+    body.cf-landing .cf-recent-gated {
+        grid-template-columns: 1fr;
+    }
+
+    /* 2 cards on tablet */
+    body.cf-landing .cf-recent-slide {
+        flex: 0 0 calc((100% - var(--cf-recent-gap)) / 2);
+    }
+}
+
+@media (max-width: 767.98px) {
+    body.cf-landing .cf-recent-header {
+        align-items: flex-start;
+    }
+
+    body.cf-landing .cf-recent-controls-bar {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    /* 1 card + clear partial next-card preview on mobile */
+    body.cf-landing .cf-recent-carousel {
+        --cf-recent-gap: 1rem;
+    }
+
+    body.cf-landing .cf-recent-slide {
+        flex: 0 0 82%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    body.cf-landing .cf-recent-filter-btn {
+        padding: 0.48rem 0.82rem;
+        font-size: 0.82rem;
+    }
+
+    body.cf-landing .cf-recent-modal-actions {
+        flex-direction: column;
+    }
+
+    body.cf-landing .cf-recent-modal-cta,
+    body.cf-landing .cf-recent-modal-dismiss {
+        width: 100%;
+    }
+}
+
+/* =============================================================
+   Phase 3: Dark Navy (#14283C) "How It Works" Interactive Journeys
+   Muted Sage (#A9B8A4), Warm Brown (#A77B5B), Dark Brown (#77543D)
+   ============================================================= */
+
+body.cf-landing .cf-hiw {
+    position: relative;
+    background-color: var(--cf-landing-navy);
+    color: var(--cf-landing-text-on-dark);
+    padding: clamp(4.75rem, 7.5vw, 7rem) 0;
+    scroll-margin-top: 76px;
+    overflow: hidden;
+}
+
+body.cf-landing .cf-anchor-compat {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+    scroll-margin-top: 76px;
+}
+
+body.cf-landing .cf-hiw-container {
+    max-width: 1260px;
+    position: relative;
+    z-index: 1;
+}
+
+body.cf-landing .cf-hiw-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.75rem;
+    margin-bottom: clamp(2.5rem, 4.5vw, 3.5rem);
+}
+
+body.cf-landing .cf-hiw-heading-wrap {
+    max-width: 560px;
+}
+
+body.cf-landing .cf-hiw-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cf-landing-warm-brown);
+    margin-bottom: 0.9rem;
+}
+
+body.cf-landing .cf-hiw-eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--cf-landing-warm-brown);
+}
+
+body.cf-landing .cf-hiw-title {
+    font-size: clamp(2.25rem, 4vw, 3.35rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: var(--cf-landing-soft-white);
+    margin: 0 0 0.85rem;
+}
+
+body.cf-landing .cf-hiw-subtitle {
+    font-size: clamp(1rem, 1.3vw, 1.125rem);
+    line-height: 1.65;
+    color: var(--cf-landing-muted-on-dark);
+    margin: 0;
+}
+
+/* Interactive Journey Switcher with Sliding Active Indicator */
+body.cf-landing .cf-hiw-journey-switch {
+    position: relative;
+    display: inline-grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0.32rem;
+    border-radius: var(--cf-landing-radius-pill);
+    background-color: rgba(247, 248, 250, 0.07);
+    border: 1px solid rgba(247, 248, 250, 0.14);
+    gap: 0.25rem;
+    flex-shrink: 0;
+}
+
+body.cf-landing .cf-hiw-tab-indicator {
+    position: absolute;
+    top: 0.32rem;
+    bottom: 0.32rem;
+    left: 0;
+    border-radius: var(--cf-landing-radius-pill);
+    background-color: var(--cf-landing-soft-white);
+    box-shadow: 0 8px 22px rgba(8, 17, 27, 0.32);
+    transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1), width 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body.cf-landing .cf-hiw-journey-tab {
+    position: relative;
+    z-index: 1;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: rgba(247, 248, 250, 0.78);
+    font-size: 0.92rem;
+    font-weight: 650;
+    padding: 0.68rem 1.35rem;
+    border-radius: var(--cf-landing-radius-pill);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.22s ease;
+}
+
+body.cf-landing .cf-hiw-journey-tab:hover {
+    color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing .cf-hiw-journey-tab.is-active {
+    color: var(--cf-landing-navy);
+}
+
+body.cf-landing .cf-hiw-journey-tab:focus-visible {
+    outline: 2px solid var(--cf-landing-warm-brown);
+    outline-offset: 2px;
+}
+
+body.cf-landing .cf-hiw-choice-top {
+    display: none;
+}
+
+/* Five-Stage Stepper + Animated Progress Line */
+body.cf-landing .cf-hiw-stepper-wrap {
+    position: relative;
+    margin-bottom: clamp(2rem, 3.5vw, 2.75rem);
+}
+
+body.cf-landing .cf-hiw-progress-rail {
+    position: absolute;
+    top: 22px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background-color: rgba(247, 248, 250, 0.14);
+    border-radius: var(--cf-landing-radius-pill);
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body.cf-landing .cf-hiw-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--cf-landing-dark-brown) 0%, var(--cf-landing-warm-brown) 65%, var(--cf-landing-soft-white) 100%);
+    transition: width 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.cf-landing .cf-hiw-stages {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+body.cf-landing .cf-hiw-stage-btn {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 0 0.35rem 0.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    color: rgba(247, 248, 250, 0.62);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+body.cf-landing .cf-hiw-stage-btn:hover {
+    color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing .cf-hiw-stage-btn:focus-visible {
+    outline: 2px solid var(--cf-landing-warm-brown);
+    outline-offset: 6px;
+    border-radius: 0.75rem;
+}
+
+body.cf-landing .cf-hiw-stage-node {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--cf-landing-navy-soft);
+    border: 1px solid rgba(247, 248, 250, 0.22);
+    color: rgba(247, 248, 250, 0.85);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.24s ease, border-color 0.24s ease, color 0.24s ease, transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+body.cf-landing .cf-hiw-stage-btn.is-passed .cf-hiw-stage-node {
+    background-color: rgba(167, 123, 91, 0.22);
+    border-color: var(--cf-landing-warm-brown);
+    color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing .cf-hiw-stage-btn.is-active {
+    color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing .cf-hiw-stage-btn.is-active .cf-hiw-stage-node {
+    background-color: var(--cf-landing-soft-white);
+    border-color: var(--cf-landing-warm-brown);
+    color: var(--cf-landing-navy);
+    transform: scale(1.06);
+    box-shadow: 0 0 0 5px rgba(167, 123, 91, 0.22);
+}
+
+body.cf-landing .cf-hiw-stage-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.3;
+    max-width: 16ch;
+}
+
+body.cf-landing .cf-hiw-stage-btn.is-active .cf-hiw-stage-label {
+    font-weight: 700;
+    color: var(--cf-landing-soft-white);
+}
+
+/* One Dynamic Detail Panel with Crossfade + Horizontal Shift */
+body.cf-landing .cf-hiw-panel {
+    background-color: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(247, 248, 250, 0.12);
+    border-radius: 1.5rem;
+    padding: clamp(1.75rem, 3.8vw, 3.25rem);
+    box-shadow: 0 24px 60px rgba(7, 15, 24, 0.34);
+    outline: none;
+}
+
+body.cf-landing .cf-hiw-panel:focus-visible {
+    border-color: var(--cf-landing-warm-brown);
+}
+
+body.cf-landing .cf-hiw-panel-inner {
+    --cf-hiw-dir: 14px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: clamp(1.75rem, 4vw, 3.5rem);
+    align-items: center;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: opacity 0.22s ease, transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.cf-landing .cf-hiw-panel-inner.is-leaving {
+    opacity: 0;
+    transform: translate3d(calc(var(--cf-hiw-dir) * -1), 0, 0);
+}
+
+body.cf-landing .cf-hiw-panel-inner.is-entering {
+    opacity: 0;
+    transform: translate3d(var(--cf-hiw-dir), 0, 0);
+    transition: none;
+}
+
+body.cf-landing .cf-hiw-panel-meta {
+    margin-bottom: 0.9rem;
+}
+
+body.cf-landing .cf-hiw-panel-step {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--cf-landing-radius-pill);
+    background-color: rgba(167, 123, 91, 0.15);
+    border: 1px solid rgba(167, 123, 91, 0.38);
+    color: var(--cf-landing-soft-white);
+    font-size: 0.78rem;
+    font-weight: 650;
+    letter-spacing: 0.03em;
+}
+
+body.cf-landing .cf-hiw-panel-title {
+    font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+    font-weight: 750;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--cf-landing-soft-white);
+    margin: 0 0 1rem;
+}
+
+body.cf-landing .cf-hiw-panel-desc {
+    font-size: 1rem;
+    line-height: 1.68;
+    color: rgba(247, 248, 250, 0.80);
+    margin: 0 0 1.5rem;
+    max-width: 56ch;
+}
+
+body.cf-landing .cf-hiw-panel-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+body.cf-landing .cf-hiw-panel-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: rgba(247, 248, 250, 0.78);
+}
+
+body.cf-landing .cf-hiw-point-marker {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--cf-landing-muted-sage);
+    margin-top: 0.48rem;
+    flex-shrink: 0;
+}
+
+/* Editorial Stage Workflow Summary Card */
+body.cf-landing .cf-hiw-panel-card {
+    position: relative;
+    background-color: var(--cf-landing-navy-deep);
+    border: 1px solid rgba(247, 248, 250, 0.11);
+    border-radius: 1.25rem;
+    padding: 1.65rem;
+    overflow: hidden;
+}
+
+body.cf-landing .cf-hiw-card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cf-landing-dark-brown) 0%, var(--cf-landing-warm-brown) 100%);
+}
+
+body.cf-landing .cf-hiw-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+body.cf-landing .cf-hiw-card-icon-wrap {
+    width: 54px;
+    height: 54px;
+    border-radius: 1rem;
+    background-color: rgba(247, 248, 250, 0.08);
+    border: 1px solid rgba(247, 248, 250, 0.14);
+    color: var(--cf-landing-soft-white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.45rem;
+}
+
+body.cf-landing .cf-hiw-card-num {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: rgba(247, 248, 250, 0.22);
+    line-height: 1;
+}
+
+body.cf-landing .cf-hiw-card-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.42rem 0.9rem;
+    border-radius: 0.65rem;
+    background-color: rgba(169, 184, 164, 0.14);
+    border: 1px solid rgba(169, 184, 164, 0.30);
+    color: var(--cf-landing-muted-sage);
+    font-size: 0.84rem;
+    font-weight: 650;
+    margin-bottom: 1.15rem;
+}
+
+body.cf-landing .cf-hiw-card-actor-label {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: rgba(247, 248, 250, 0.54);
+    margin-bottom: 0.25rem;
+}
+
+body.cf-landing .cf-hiw-card-actor {
+    font-size: 1.02rem;
+    font-weight: 650;
+    color: var(--cf-landing-soft-white);
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.15rem;
+    border-bottom: 1px solid rgba(247, 248, 250, 0.10);
+}
+
+body.cf-landing .cf-hiw-card-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+body.cf-landing .cf-hiw-step-nav-btn {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.62rem 0.9rem;
+    border-radius: var(--cf-landing-radius-pill);
+    border: 1px solid rgba(247, 248, 250, 0.18);
+    background-color: rgba(247, 248, 250, 0.05);
+    color: var(--cf-landing-soft-white);
+    font-size: 0.84rem;
+    font-weight: 600;
+    cursor: pointer;
+    min-height: 44px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+body.cf-landing .cf-hiw-step-nav-btn:hover:not(:disabled) {
+    background-color: rgba(247, 248, 250, 0.14);
+    border-color: var(--cf-landing-warm-brown);
+}
+
+body.cf-landing .cf-hiw-step-nav-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+body.cf-landing .cf-hiw-step-nav-btn:focus-visible {
+    outline: 2px solid var(--cf-landing-warm-brown);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Phase 4C — Repair 4.2 & Batch 1: 3D Elliptical Orbital Carousel & Living Environment
+   ========================================================================== */
+
+/* Living Spatial Environment: Ambient Light Fields & Faint Orbital Perspective Geometry */
+body.cf-landing .cf-hiw-ambient-env {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* Ambient Light Fields (Warm Cognac, Muted Sage, Active Focal Pool) */
+body.cf-landing .cf-hiw-ambient-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+body.cf-landing .cf-hiw-ambient-glow--cognac {
+    top: 18%;
+    left: 8%;
+    width: clamp(400px, 42vw, 640px);
+    height: clamp(340px, 36vw, 540px);
+    background: radial-gradient(circle, rgba(167, 123, 91, 0.22) 0%, rgba(167, 123, 91, 0.08) 50%, transparent 72%);
+    filter: blur(85px);
+    transform: translate3d(var(--hiw-ptr-x, 0px), var(--hiw-ptr-y, 0px), 0);
+    animation: cfHiwBreatheCognac 15s ease-in-out infinite alternate;
+}
+
+body.cf-landing .cf-hiw-ambient-glow--sage {
+    top: 36%;
+    right: 6%;
+    width: clamp(380px, 38vw, 580px);
+    height: clamp(320px, 32vw, 480px);
+    background: radial-gradient(circle, rgba(169, 184, 164, 0.18) 0%, rgba(169, 184, 164, 0.06) 50%, transparent 72%);
+    filter: blur(85px);
+    transform: translate3d(calc(-1 * var(--hiw-ptr-x, 0px) * 0.75), calc(-1 * var(--hiw-ptr-y, 0px) * 0.75), 0);
+    animation: cfHiwBreatheSage 17s ease-in-out infinite alternate;
+}
+
+body.cf-landing .cf-hiw-ambient-glow--focal {
+    top: 50%;
+    left: 50%;
+    width: clamp(480px, 55vw, 760px);
+    height: clamp(260px, 28vh, 360px);
+    background: radial-gradient(ellipse at center, rgba(167, 123, 91, 0.15) 0%, rgba(167, 123, 91, 0.04) 55%, transparent 75%);
+    filter: blur(65px);
+    transform: translate3d(calc(-50% + var(--hiw-stage-focal-x, 0px) + var(--hiw-ptr-x, 0px) * 0.35), calc(-50% + var(--hiw-ptr-y, 0px) * 0.35), 0);
+    animation: cfHiwBreatheFocal 9s ease-in-out infinite alternate;
+}
+
+@keyframes cfHiwBreatheCognac {
+    0% {
+        opacity: 0.85;
+        transform: translate3d(var(--hiw-ptr-x, 0px), var(--hiw-ptr-y, 0px), 0) scale(1);
+    }
+    50% {
+        opacity: 1.05;
+        transform: translate3d(calc(var(--hiw-ptr-x, 0px) + 8px), calc(var(--hiw-ptr-y, 0px) - 6px), 0) scale(1.06);
+    }
+    100% {
+        opacity: 0.90;
+        transform: translate3d(calc(var(--hiw-ptr-x, 0px) - 6px), calc(var(--hiw-ptr-y, 0px) + 8px), 0) scale(0.97);
+    }
+}
+
+@keyframes cfHiwBreatheSage {
+    0% {
+        opacity: 0.88;
+        transform: translate3d(calc(-1 * var(--hiw-ptr-x, 0px) * 0.75), calc(-1 * var(--hiw-ptr-y, 0px) * 0.75), 0) scale(0.98);
+    }
+    50% {
+        opacity: 1.08;
+        transform: translate3d(calc(-1 * var(--hiw-ptr-x, 0px) * 0.75 - 7px), calc(-1 * var(--hiw-ptr-y, 0px) * 0.75 + 6px), 0) scale(1.05);
+    }
+    100% {
+        opacity: 0.84;
+        transform: translate3d(calc(-1 * var(--hiw-ptr-x, 0px) * 0.75 + 6px), calc(-1 * var(--hiw-ptr-y, 0px) * 0.75 - 7px), 0) scale(1);
+    }
+}
+
+@keyframes cfHiwBreatheFocal {
+    0% {
+        opacity: 0.85;
+        transform: translate3d(calc(-50% + var(--hiw-stage-focal-x, 0px) + var(--hiw-ptr-x, 0px) * 0.35), calc(-50% + var(--hiw-ptr-y, 0px) * 0.35), 0) scale(0.98);
+    }
+    100% {
+        opacity: 1.15;
+        transform: translate3d(calc(-50% + var(--hiw-stage-focal-x, 0px) + var(--hiw-ptr-x, 0px) * 0.35), calc(-50% + var(--hiw-ptr-y, 0px) * 0.35), 0) scale(1.04);
+    }
+}
+
+/* Faint Orbital Depth Lines (SVG) */
+body.cf-landing .cf-hiw-orbital-rings {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: clamp(800px, 92vw, 1320px);
+    height: clamp(340px, 48vh, 480px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.35;
+}
+
+body.cf-landing .cf-hiw-orbit-ellipse {
+    fill: none;
+    stroke-linecap: round;
+}
+
+body.cf-landing .cf-hiw-orbit-ellipse--outer {
+    stroke: rgba(247, 248, 250, 0.12);
+    stroke-width: 1.2px;
+    stroke-dasharray: 6 10;
+}
+
+body.cf-landing .cf-hiw-orbit-ellipse--inner {
+    stroke: rgba(167, 123, 91, 0.22);
+    stroke-width: 1px;
+    stroke-dasharray: 4 8;
+}
+
+body.cf-landing .cf-hiw-orbit-arc {
+    fill: none;
+    stroke: rgba(169, 184, 164, 0.20);
+    stroke-width: 1.3px;
+    stroke-dasharray: 5 9;
+}
+
+/* 3D Coverflow Viewport */
+body.cf-landing .cf-hiw-panel.cf-hiw-coverflow-viewport {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    perspective: 1200px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: clamp(450px, 58vh, 520px);
+}
+
+body.cf-landing .cf-hiw-panel-inner.cf-hiw-coverflow-track {
+    display: flex;
+    grid-template-columns: none;
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    pointer-events: auto;
+}
+
+/* 3D Stage Card Root */
+body.cf-landing .cf-hiw-card-3d {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: clamp(340px, 34vw, 420px);
+    height: clamp(430px, 54vh, 480px);
+    transform-style: preserve-3d;
+    transform-origin: 50% 50%;
+    backface-visibility: hidden;
+    will-change: transform, opacity, filter;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 0.65s ease,
+                filter 0.65s ease;
+    outline: none;
+}
+
+body.cf-landing .cf-hiw-card-3d.is-active {
+    cursor: default;
+    z-index: 100;
+}
+
+body.cf-landing .cf-hiw-card-3d:not(.is-active) {
+    pointer-events: auto;
+}
+
+body.cf-landing .cf-hiw-card-3d:not(.is-active) * {
+    pointer-events: none;
+}
+
+/* Separate Inner Floating Transform Layer */
+body.cf-landing .cf-hiw-card-3d-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+body.cf-landing .cf-hiw-card-3d.is-active .cf-hiw-card-3d-inner {
+    animation: cfHiwCardFloatActive 5.4s ease-in-out infinite alternate;
+}
+
+body.cf-landing .cf-hiw-card-3d:not(.is-active) .cf-hiw-card-3d-inner {
+    animation: cfHiwCardFloatSide 6.8s ease-in-out infinite alternate;
+}
+
+#cf-hiw-card-0 .cf-hiw-card-3d-inner { animation-delay: 0s; }
+#cf-hiw-card-1 .cf-hiw-card-3d-inner { animation-delay: -1.3s; }
+#cf-hiw-card-2 .cf-hiw-card-3d-inner { animation-delay: -2.6s; }
+#cf-hiw-card-3 .cf-hiw-card-3d-inner { animation-delay: -3.9s; }
+#cf-hiw-card-4 .cf-hiw-card-3d-inner { animation-delay: -5.2s; }
+
+@keyframes cfHiwCardFloatActive {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, -7px, 0);
+    }
+}
+
+@keyframes cfHiwCardFloatSide {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+/* Card Physical Surface */
+body.cf-landing .cf-hiw-card-surface {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(165deg, rgba(24, 44, 66, 0.96) 0%, rgba(14, 28, 42, 0.99) 100%);
+    border: 1px solid rgba(247, 248, 250, 0.12);
+    border-radius: 1.35rem;
+    padding: clamp(1.35rem, 2.4vw, 1.75rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 16px 40px rgba(5, 12, 20, 0.40);
+    overflow: hidden;
+    color: var(--cf-landing-soft-white);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.cf-landing .cf-hiw-card-3d.is-active .cf-hiw-card-surface {
+    border-color: rgba(167, 123, 91, 0.45);
+    box-shadow: 0 24px 64px rgba(4, 10, 18, 0.58), 0 0 0 1px rgba(167, 123, 91, 0.22);
+}
+
+body.cf-landing .cf-hiw-card-surface:hover {
+    border-color: rgba(167, 123, 91, 0.50);
+}
+
+/* Card Accent Bar */
+body.cf-landing .cf-hiw-card-surface .cf-hiw-card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--cf-landing-dark-brown) 0%, var(--cf-landing-warm-brown) 100%);
+    opacity: 0.85;
+}
+
+body.cf-landing .cf-hiw-card-3d.is-active .cf-hiw-card-accent {
+    opacity: 1;
+    box-shadow: 0 0 12px rgba(167, 123, 91, 0.45);
+}
+
+/* Card Top: Icon, Badge, Number */
+body.cf-landing .cf-hiw-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+body.cf-landing .cf-hiw-card-icon-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+body.cf-landing .cf-hiw-card-icon-wrap {
+    width: 42px;
+    height: 42px;
+    border-radius: 0.85rem;
+    background-color: rgba(247, 248, 250, 0.08);
+    border: 1px solid rgba(247, 248, 250, 0.14);
+    color: var(--cf-landing-soft-white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+body.cf-landing .cf-hiw-card-3d.is-active .cf-hiw-card-icon-wrap {
+    background-color: rgba(167, 123, 91, 0.18);
+    border-color: var(--cf-landing-warm-brown);
+    color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing .cf-hiw-card-num {
+    font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: rgba(247, 248, 250, 0.28);
+    line-height: 1;
+}
+
+body.cf-landing .cf-hiw-card-3d.is-active .cf-hiw-card-num {
+    color: var(--cf-landing-warm-brown);
+    opacity: 0.95;
+}
+
+body.cf-landing .cf-hiw-card-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.32rem 0.75rem;
+    border-radius: 0.55rem;
+    background-color: rgba(169, 184, 164, 0.14);
+    border: 1px solid rgba(169, 184, 164, 0.30);
+    color: var(--cf-landing-muted-sage);
+    font-size: 0.78rem;
+    font-weight: 650;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+
+/* Card Body */
+body.cf-landing .cf-hiw-card-main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
+}
+
+body.cf-landing .cf-hiw-card-step-meta {
+    font-size: 0.75rem;
+    font-weight: 650;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(167, 123, 91, 0.95);
+    margin-bottom: 0.35rem;
+}
+
+body.cf-landing .cf-hiw-card-title {
+    font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+    font-weight: 750;
+    line-height: 1.28;
+    letter-spacing: -0.02em;
+    color: var(--cf-landing-soft-white);
+    margin: 0 0 0.45rem;
+}
+
+body.cf-landing .cf-hiw-card-desc {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: rgba(247, 248, 250, 0.80);
+    margin: 0 0 0.65rem;
+}
+
+body.cf-landing .cf-hiw-card-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+body.cf-landing .cf-hiw-card-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: rgba(247, 248, 250, 0.75);
+}
+
+/* Card Footer */
+body.cf-landing .cf-hiw-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(247, 248, 250, 0.10);
+    margin-top: 0.55rem;
+}
+
+body.cf-landing .cf-hiw-card-actor-label {
+    display: block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(247, 248, 250, 0.50);
+    margin-bottom: 0.15rem;
+}
+
+body.cf-landing .cf-hiw-card-actor {
+    font-size: 0.86rem;
+    font-weight: 650;
+    color: var(--cf-landing-soft-white);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+
+body.cf-landing .cf-hiw-card-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-shrink: 0;
+}
+
+body.cf-landing .cf-hiw-card-nav .cf-hiw-step-nav-btn {
+    padding: 0.42rem 0.8rem;
+    min-height: 36px;
+    font-size: 0.78rem;
+    border-radius: var(--cf-landing-radius-pill);
+}
+
+/* Side Card Subdued State: number and title remain clearly legible while secondary details are subdued */
+body.cf-landing .cf-hiw-card-3d:not(.is-active) .cf-hiw-card-num {
+    color: rgba(247, 248, 250, 0.65);
+    opacity: 0.95;
+}
+
+body.cf-landing .cf-hiw-card-3d:not(.is-active) .cf-hiw-card-step-meta,
+body.cf-landing .cf-hiw-card-3d:not(.is-active) .cf-hiw-card-title {
+    opacity: 0.95;
+}
+
+body.cf-landing .cf-hiw-card-3d:not(.is-active) .cf-hiw-card-desc,
+body.cf-landing .cf-hiw-card-3d:not(.is-active) .cf-hiw-card-points,
+body.cf-landing .cf-hiw-card-3d:not(.is-active) .cf-hiw-card-footer {
+    opacity: 0.48;
+}
+
+/* Pause Floating Motion on Tab Inactive or Reduced Motion */
+body.is-page-hidden .cf-hiw-card-3d-inner,
+body.is-page-hidden .cf-hiw-ambient-glow {
+    animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.cf-landing .cf-hiw-card-3d,
+    body.cf-landing .cf-hiw-card-3d-inner,
+    body.cf-landing .cf-hiw-ambient-glow {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Phase 3 Responsive Rules */
+@media (max-width: 991.98px) {
+    body.cf-landing .cf-hiw-panel-inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 767.98px) {
+    body.cf-landing .cf-hiw-container {
+        padding-left: 1.375rem;
+        padding-right: 1.375rem;
+    }
+
+    body.cf-landing .cf-hiw-journey-switch {
+        width: 100%;
+    }
+
+    body.cf-landing .cf-hiw-journey-tab {
+        padding: 0.65rem 0.75rem;
+        font-size: 0.86rem;
+    }
+
+    /* Mobile linear progress bar above clean wrapped stage pills */
+    body.cf-landing .cf-hiw-progress-rail {
+        position: static;
+        width: 100%;
+        height: 4px;
+        margin-bottom: 1.15rem;
+    }
+
+    body.cf-landing .cf-hiw-stages {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+    }
+
+    body.cf-landing .cf-hiw-stage-btn {
+        flex: 1 1 calc(50% - 0.55rem);
+        min-width: 0;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        gap: 0.6rem;
+        padding: 0.6rem 0.75rem;
+        min-height: 44px;
+        border-radius: 0.85rem;
+        background-color: rgba(247, 248, 250, 0.05);
+        border: 1px solid rgba(247, 248, 250, 0.12);
+    }
+
+    body.cf-landing .cf-hiw-stage-btn.is-active {
+        background-color: rgba(247, 248, 250, 0.13);
+        border-color: var(--cf-landing-warm-brown);
+    }
+
+    body.cf-landing .cf-hiw-stage-node {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+        flex-shrink: 0;
+    }
+
+    body.cf-landing .cf-hiw-stage-label {
+        font-size: 0.82rem;
+        max-width: none;
+    }
+}
+
+/* =============================================================
+   Phase 4B-1: Final Editorial CTA (Soft White #F7F8FA) & Landing Footer (#14283C)
+   ============================================================= */
+
+body.cf-landing .cf-final-cta {
+    position: relative;
+    background-color: var(--cf-landing-soft-white);
+    color: var(--cf-landing-navy);
+    padding: clamp(5rem, 8.5vw, 7.75rem) 0;
+    border-top: 1px solid rgba(20, 40, 60, 0.06);
+}
+
+body.cf-landing .cf-final-cta-container {
+    max-width: 980px;
+}
+
+body.cf-landing .cf-final-cta-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body.cf-landing .cf-final-cta-inner.cf-reveal-pending {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+}
+
+body.cf-landing .cf-final-cta-inner.cf-reveal-ready {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.cf-landing .cf-final-cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cf-landing-dark-brown);
+    margin-bottom: 1.15rem;
+}
+
+body.cf-landing .cf-final-cta-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--cf-landing-warm-brown);
+}
+
+body.cf-landing .cf-final-cta-title {
+    font-size: clamp(2.55rem, 5.4vw, 4.35rem);
+    font-weight: 800;
+    line-height: 1.03;
+    letter-spacing: -0.04em;
+    color: var(--cf-landing-navy);
+    margin: 0 0 1.2rem;
+    max-width: 14ch;
+}
+
+body.cf-landing .cf-final-cta-desc {
+    font-size: clamp(1rem, 1.35vw, 1.15rem);
+    line-height: 1.65;
+    color: var(--cf-landing-text-muted);
+    margin: 0 0 2.25rem;
+    max-width: 48ch;
+}
+
+body.cf-landing .cf-final-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+body.cf-landing .cf-final-cta-btn {
+    transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.24s ease, background-color 0.2s ease;
+}
+
+body.cf-landing .cf-final-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(20, 40, 60, 0.22);
+}
+
+body.cf-landing .cf-final-cta-btn .cf-hero-btn-arrow {
+    transition: transform 0.24s ease;
+}
+
+body.cf-landing .cf-final-cta-btn:hover .cf-hero-btn-arrow {
+    transform: translateX(4px);
+}
+
+/* Midnight Navy Landing Footer (Scoped Exclusively to Landing Page) */
+body.cf-landing .cf-landing-footer {
+    background-color: var(--cf-landing-navy);
+    color: var(--cf-landing-soft-white);
+    padding: clamp(3rem, 5vw, 4.25rem) 0 clamp(3.5rem, 5vw, 4.5rem);
+    border-top: 1px solid rgba(247, 248, 250, 0.08);
+}
+
+body.cf-landing .cf-landing-footer-container {
+    max-width: 1260px;
+}
+
+body.cf-landing .cf-landing-footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(247, 248, 250, 0.12);
+}
+
+body.cf-landing .cf-landing-footer-wordmark {
+    display: inline-block;
+    font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--cf-landing-soft-white);
+    text-decoration: none;
+    margin-bottom: 0.35rem;
+}
+
+body.cf-landing .cf-landing-footer-tagline {
+    font-size: 0.98rem;
+    color: rgba(247, 248, 250, 0.74);
+    margin: 0;
+}
+
+body.cf-landing .cf-landing-footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem 1.75rem;
+}
+
+body.cf-landing .cf-landing-footer-link {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: rgba(247, 248, 250, 0.84);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+body.cf-landing .cf-landing-footer-link:hover {
+    color: var(--cf-landing-warm-brown);
+}
+
+body.cf-landing .cf-landing-footer-link:focus-visible {
+    outline: 2px solid var(--cf-landing-warm-brown);
+    outline-offset: 4px;
+    border-radius: 0.25rem;
+}
+
+body.cf-landing .cf-landing-footer-bottom {
+    padding-top: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+body.cf-landing .cf-landing-footer-copy {
+    font-size: 0.84rem;
+    color: rgba(247, 248, 250, 0.62);
+    margin: 0;
+}
+
+@media (max-width: 767.98px) {
+    body.cf-landing .cf-landing-footer {
+        padding-bottom: 5rem;
+    }
+
+    body.cf-landing .cf-final-cta-container,
+    body.cf-landing .cf-landing-footer-container {
+        padding-left: 1.375rem;
+        padding-right: 1.375rem;
+    }
+
+    body.cf-landing .cf-final-cta-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    body.cf-landing .cf-final-cta-btn,
+    body.cf-landing .cf-final-cta-secondary {
+        width: 100%;
+    }
+}
+
+/* =============================================================
+   Phase 4B-2: Smart Optical Liquid Glass Navbar (Guest Landing Only)
+   ============================================================= */
+
+body.cf-landing {
+    --lg-ptr-x: 50%;
+    --lg-ptr-y: 28%;
+    --lg-angle: 132deg;
+    --lg-spec-opacity: 0.72;
+}
+
+/* Reserve balanced top breathing room on Hero only when fixed glass navbar is active */
+body.cf-landing.cf-has-glass-nav .cf-hero {
+    padding-top: clamp(5.5rem, 8.2vw, 7rem);
+}
+
+.cf-lg-svg-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.cf-guest-nav-dock {
+    position: fixed;
+    top: max(0.85rem, env(safe-area-inset-top, 0px));
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    padding: 0 max(1.25rem, env(safe-area-inset-right, 0px)) 0 max(1.25rem, env(safe-area-inset-left, 0px));
+    pointer-events: none;
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    transition:
+        transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.28s ease;
+    animation: cfGuestNavEnter 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes cfGuestNavEnter {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -18px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.cf-guest-nav-dock.is-open-menu {
+    z-index: 1045;
+}
+
+.cf-guest-nav-dock.is-nav-hidden {
+    opacity: 0;
+    transform: translate3d(0, calc(-100% - 1.75rem), 0);
+    pointer-events: none;
+}
+
+.cf-guest-nav-shell {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cf-guest-nav-left {
+    justify-self: start;
+    pointer-events: auto;
+}
+
+.cf-guest-nav-right {
+    justify-self: end;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    pointer-events: auto;
+}
+
+/* Separate Left Brand Pill */
+.cf-guest-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.58rem;
+    padding: 0.56rem 1rem 0.56rem 0.85rem;
+    min-height: 44px;
+    border-radius: 9999px;
+    font-size: 0.96rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--cf-landing-navy);
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: rgba(247, 248, 250, 0.82);
+    -webkit-backdrop-filter: blur(14px) saturate(1.3);
+    backdrop-filter: blur(14px) saturate(1.3);
+    border: 1px solid rgba(20, 40, 60, 0.10);
+    box-shadow: 0 10px 28px rgba(20, 40, 60, 0.08);
+    transition: transform 0.22s ease, background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+}
+
+.cf-guest-brand:hover {
+    color: var(--cf-landing-navy);
+    transform: translateY(-1px);
+    background-color: rgba(247, 248, 250, 0.96);
+}
+
+.cf-guest-brand:focus-visible {
+    outline: 2px solid var(--cf-landing-warm-brown);
+    outline-offset: 2px;
+}
+
+.cf-guest-brand-mark {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cf-landing-warm-brown) 0%, var(--cf-landing-dark-brown) 100%);
+    box-shadow: 0 0 0 3px rgba(167, 123, 91, 0.22);
+    flex-shrink: 0;
+}
+
+/* Separate Right Login CTA */
+.cf-guest-login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.62rem 1.35rem;
+    min-height: 44px;
+    border-radius: 9999px;
+    background-color: var(--cf-landing-navy);
+    color: var(--cf-landing-soft-white);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid rgba(247, 248, 250, 0.22);
+    box-shadow: 0 10px 26px rgba(20, 40, 60, 0.20);
+    transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cf-guest-login-btn:hover {
+    background-color: var(--cf-landing-navy-deep);
+    color: var(--cf-landing-soft-white);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px rgba(20, 40, 60, 0.28);
+}
+
+.cf-guest-login-btn:focus-visible {
+    outline: 2px solid var(--cf-landing-warm-brown);
+    outline-offset: 3px;
+}
+
+/* Centered Floating Optical Liquid Glass Capsule */
+.cf-lg-capsule {
+    pointer-events: auto;
+    position: relative;
+    min-height: 54px;
+    border-radius: 9999px;
+    isolation: isolate;
+    transform: translateZ(0);
+    will-change: transform;
+    box-shadow:
+        0 18px 44px rgba(20, 40, 60, 0.14),
+        0 3px 10px rgba(20, 40, 60, 0.07),
+        inset 0 1px 0 rgba(247, 248, 250, 0.80),
+        inset 0 -1px 0 rgba(20, 40, 60, 0.09);
+}
+
+/* Isolated Optical Refraction Layer (Chromium SVG vs Safari/Firefox frosted fallback) */
+.cf-lg-refraction-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: 0;
+    pointer-events: none;
+    background-color: rgba(247, 248, 250, 0.56);
+    -webkit-backdrop-filter: blur(18px) saturate(1.45);
+    backdrop-filter: blur(18px) saturate(1.45);
+    transition: background-color 0.25s ease;
+}
+
+body.cf-landing.is-optical-active .cf-lg-refraction-layer {
+    background-color: rgba(247, 248, 250, 0.18);
+    -webkit-backdrop-filter: url(#cf-lg-nav-filter) saturate(1.22);
+    backdrop-filter: url(#cf-lg-nav-filter) saturate(1.22);
+}
+
+body.cf-landing.is-fallback-forced .cf-lg-refraction-layer {
+    background-color: rgba(247, 248, 250, 0.64);
+    -webkit-backdrop-filter: blur(20px) saturate(1.55);
+    backdrop-filter: blur(20px) saturate(1.55);
+}
+
+/* Dynamic Pointer-Tracked Radial Specular Highlight */
+.cf-lg-specular-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            220px circle at var(--lg-ptr-x) var(--lg-ptr-y),
+            rgba(247, 248, 250, var(--lg-spec-opacity)) 0%,
+            rgba(240, 243, 246, 0.24) 40%,
+            rgba(247, 248, 250, 0) 76%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.36) 0%,
+            rgba(247, 248, 250, 0.05) 52%,
+            rgba(20, 40, 60, 0.07) 100%
+        );
+    mix-blend-mode: screen;
+}
+
+/* Subtle Chromatic Fresnel Edge Rim */
+.cf-lg-rim-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.25px;
+    z-index: 1;
+    pointer-events: none;
+    background: conic-gradient(
+        from var(--lg-angle),
+        rgba(247, 248, 250, 0.94) 0deg,
+        rgba(167, 123, 91, 0.56) 65deg,
+        rgba(169, 184, 164, 0.48) 150deg,
+        rgba(20, 40, 60, 0.20) 235deg,
+        rgba(119, 84, 61, 0.40) 305deg,
+        rgba(247, 248, 250, 0.94) 360deg
+    );
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* Crisp Foreground Text Layer */
+.cf-lg-capsule-inner {
+    position: relative;
+    z-index: 2;
+    padding: 0.38rem 0.45rem;
+}
+
+.cf-lg-active-indicator {
+    position: absolute;
+    top: 0.38rem;
+    left: 0;
+    height: calc(100% - 0.76rem);
+    border-radius: 9999px;
+    background-color: rgba(20, 40, 60, 0.10);
+    box-shadow: inset 0 1px 0 rgba(247, 248, 250, 0.65);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition:
+        transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+        width 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.cf-lg-active-indicator.is-ready {
+    opacity: 1;
+}
+
+.cf-lg-nav-list {
+    position: relative;
+    z-index: 1;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.22rem;
+    margin: 0;
+    padding: 0;
+}
+
+.cf-lg-nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.38rem;
+    min-height: 44px;
+    padding: 0.55rem 1.1rem;
+    border-radius: 9999px;
+    border: 0;
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.89rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--cf-landing-navy);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.cf-lg-nav-link:hover {
+    color: var(--cf-landing-dark-brown);
+}
+
+.cf-lg-nav-link:focus-visible {
+    outline: 2px solid var(--cf-landing-warm-brown);
+    outline-offset: -2px;
+}
+
+.cf-lg-chevron {
+    transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cf-lg-help-btn[aria-expanded="true"] .cf-lg-chevron {
+    transform: rotate(180deg);
+}
+
+/* Help Dropdown Panel */
+.cf-lg-help-item {
+    position: relative;
+}
+
+.cf-lg-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: -0.25rem;
+    min-width: 248px;
+    padding: 0.45rem;
+    border-radius: 1.1rem;
+    background-color: rgba(247, 248, 250, 0.94);
+    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    backdrop-filter: blur(20px) saturate(1.4);
+    border: 1px solid rgba(20, 40, 60, 0.12);
+    box-shadow: 0 22px 48px rgba(14, 29, 44, 0.20);
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    z-index: 10;
+    opacity: 0;
+    transform: translate3d(0, -6px, 0) scale(0.98);
+    transform-origin: top right;
+    transition:
+        opacity 0.2s ease,
+        transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cf-lg-dropdown[hidden] {
+    display: none;
+}
+
+.cf-lg-dropdown.is-open {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+.cf-lg-dropdown-item {
+    width: 100%;
+    text-align: left;
+    border: 0;
+    background: transparent;
+    border-radius: 0.78rem;
+    padding: 0.65rem 0.85rem;
+    min-height: 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.12rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.18s ease;
+}
+
+.cf-lg-dropdown-item:hover,
+.cf-lg-dropdown-item:focus-visible {
+    background-color: rgba(20, 40, 60, 0.07);
+    outline: none;
+}
+
+.cf-lg-dropdown-item:focus-visible {
+    box-shadow: inset 0 0 0 2px var(--cf-landing-warm-brown);
+}
+
+.cf-lg-dropdown-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--cf-landing-navy);
+    line-height: 1.25;
+}
+
+.cf-lg-dropdown-sub {
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: var(--cf-landing-text-muted);
+    line-height: 1.3;
+}
+
+/* Dark Section Surface Adaptation (when scrolling over #how-it-works #14283C) */
+.cf-guest-nav-dock.is-over-dark .cf-lg-refraction-layer {
+    background-color: rgba(20, 40, 60, 0.56);
+}
+
+body.cf-landing.is-optical-active .cf-guest-nav-dock.is-over-dark .cf-lg-refraction-layer {
+    background-color: rgba(20, 40, 60, 0.36);
+}
+
+.cf-guest-nav-dock.is-over-dark .cf-lg-nav-link {
+    color: var(--cf-landing-soft-white);
+}
+
+.cf-guest-nav-dock.is-over-dark .cf-lg-nav-link:hover {
+    color: var(--cf-landing-warm-brown);
+}
+
+.cf-guest-nav-dock.is-over-dark .cf-lg-active-indicator {
+    background-color: rgba(247, 248, 250, 0.16);
+    box-shadow: inset 0 1px 0 rgba(247, 248, 250, 0.25);
+}
+
+.cf-guest-nav-dock.is-over-dark .cf-guest-brand {
+    background-color: rgba(20, 40, 60, 0.72);
+    color: var(--cf-landing-soft-white);
+    border-color: rgba(247, 248, 250, 0.18);
+}
+
+.cf-guest-nav-dock.is-over-dark .cf-guest-login-btn {
+    background-color: var(--cf-landing-soft-white);
+    color: var(--cf-landing-navy);
+    border-color: rgba(247, 248, 250, 0.35);
+}
+
+/* Mobile Hamburger & Fullscreen Overlay Drawer (< 900px) */
+.cf-guest-burger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 9999px;
+    border: 1px solid rgba(20, 40, 60, 0.14);
+    background-color: rgba(247, 248, 250, 0.88);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    color: var(--cf-landing-navy);
+    box-shadow: 0 8px 22px rgba(20, 40, 60, 0.10);
+    cursor: pointer;
+}
+
+.cf-guest-burger:focus-visible {
+    outline: 2px solid var(--cf-landing-warm-brown);
+    outline-offset: 2px;
+}
+
+.cf-guest-nav-dock.is-over-dark .cf-guest-burger {
+    background-color: rgba(20, 40, 60, 0.72);
+    color: var(--cf-landing-soft-white);
+    border-color: rgba(247, 248, 250, 0.20);
+}
+
+.cf-guest-mob {
+    position: fixed;
+    inset: 0;
+    z-index: 1042;
+    padding: calc(max(4.75rem, env(safe-area-inset-top, 0px) + 4.25rem))
+             max(1.375rem, env(safe-area-inset-right, 0px))
+             max(2rem, env(safe-area-inset-bottom, 0px))
+             max(1.375rem, env(safe-area-inset-left, 0px));
+    background-color: rgba(247, 248, 250, 0.96);
+    -webkit-backdrop-filter: blur(22px) saturate(1.4);
+    backdrop-filter: blur(22px) saturate(1.4);
+    overflow-y: auto;
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+    transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.cf-guest-mob[hidden] {
+    display: none;
+}
+
+.cf-guest-mob.is-open {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.cf-guest-mob-inner {
+    max-width: 440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.cf-guest-mob-link,
+.cf-guest-mob-accordion summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    border-radius: 0.9rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--cf-landing-navy);
+    text-decoration: none;
+    border: 1px solid rgba(20, 40, 60, 0.08);
+    background-color: var(--cf-landing-white);
+    cursor: pointer;
+    list-style: none;
+}
+
+.cf-guest-mob-accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.cf-guest-mob-accordion summary::after {
+    content: '+';
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--cf-landing-warm-brown);
+}
+
+.cf-guest-mob-accordion[open] summary::after {
+    content: '\2212';
+}
+
+.cf-guest-mob-sub {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.45rem 0 0.2rem 0.85rem;
+}
+
+.cf-guest-mob-sub a,
+.cf-guest-mob-sub button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    min-height: 44px;
+    padding: 0.65rem 0.9rem;
+    border-radius: 0.75rem;
+    border: 0;
+    background-color: var(--cf-landing-cool-gray);
+    font-family: inherit;
+    font-size: 0.94rem;
+    font-weight: 600;
+    color: var(--cf-landing-navy);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cf-guest-mob-login {
+    margin-top: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.85rem 1.25rem;
+    border-radius: 9999px;
+    background-color: var(--cf-landing-navy);
+    color: var(--cf-landing-soft-white);
+    font-size: 0.98rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 12px 26px rgba(20, 40, 60, 0.22);
+}
+
+@media (max-width: 899.98px) {
+    .cf-guest-nav-dock {
+        padding-left: max(1rem, env(safe-area-inset-left, 0px));
+        padding-right: max(1rem, env(safe-area-inset-right, 0px));
+    }
+
+    .cf-guest-nav-shell {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.65rem;
+    }
+
+    .cf-lg-capsule {
+        display: none;
+    }
+
+    .cf-guest-burger {
+        display: inline-flex;
+    }
+}
+
+/* Reduced-motion accessibility guard for landing components */
+@media (prefers-reduced-motion: reduce) {
+    body.cf-landing,
+    body.cf-landing *,
+    body.cf-landing *::before,
+    body.cf-landing *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    body.cf-landing .cf-hero-line,
+    body.cf-landing .cf-hero-subtitle,
+    body.cf-landing .cf-hero-actions,
+    body.cf-landing .cf-hero-entrance,
+    body.cf-landing .cf-hero-float,
+    body.cf-landing .cf-final-cta-inner,
+    body.cf-landing .cf-final-cta-inner.cf-reveal-pending,
+    body.cf-landing .cf-guest-nav-dock:not(.is-nav-hidden),
+    body.cf-landing .cf-lg-dropdown,
+    body.cf-landing .cf-guest-mob {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* =============================================================
+   Phase 4C: Cinematic Scroll Narrative System (Scene 01 -> 08)
+   Scoped strictly to body.cf-landing
+   Palette: Navy #14283C, Soft White #F7F8FA, Cool Gray #F0F3F6,
+   Warm Brown #A77B5B, Dark Brown #77543D, Muted Sage #A9B8A4
+   ============================================================= */
+
+body.cf-landing .cf-narrative-root {
+    position: relative;
+}
+
+body.cf-landing .cf-stage-viewport {
+    position: relative;
+    width: 100%;
+}
+
+body.cf-landing .cf-scene-layer {
+    position: relative;
+    width: 100%;
+}
+
+/* Scene 07: Emotional Closing + Integrated Footer */
+body.cf-landing .cf-closing {
+    position: relative;
+    background-color: var(--cf-landing-soft-white);
+    color: var(--cf-landing-navy);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+body.cf-landing .cf-closing-upper {
+    padding: clamp(4.25rem, 7vw, 6.25rem) 0 clamp(3rem, 5vw, 4.5rem);
+}
+
+body.cf-landing .cf-closing-container {
+    max-width: 1260px;
+}
+
+body.cf-landing .cf-closing-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+}
+
+body.cf-landing .cf-closing-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cf-landing-dark-brown);
+    margin-bottom: 1rem;
+}
+
+body.cf-landing .cf-closing-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--cf-landing-warm-brown);
+}
+
+body.cf-landing .cf-closing-title {
+    font-size: clamp(2.35rem, 4.8vw, 3.85rem);
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+    color: var(--cf-landing-navy);
+    margin: 0 0 1.1rem;
+    max-width: 14ch;
+}
+
+body.cf-landing .cf-closing-desc {
+    font-size: clamp(1rem, 1.3vw, 1.12rem);
+    line-height: 1.65;
+    color: #586B7D;
+    margin: 0 0 2rem;
+    max-width: 46ch;
+}
+
+body.cf-landing .cf-closing-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+}
+
+body.cf-landing .cf-closing-visuals {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    height: clamp(240px, 28vw, 340px);
+    margin-left: auto;
+    pointer-events: none;
+    user-select: none;
+}
+
+body.cf-landing .cf-closing-obj {
+    position: absolute;
+}
+
+body.cf-landing .cf-closing-obj--notebook {
+    top: 4%;
+    right: 6%;
+    width: 46%;
+    z-index: 1;
+}
+
+body.cf-landing .cf-closing-obj--wallet {
+    bottom: 8%;
+    left: 4%;
+    width: 44%;
+    z-index: 2;
+}
+
+body.cf-landing .cf-closing-obj--keys {
+    bottom: 2%;
+    right: 12%;
+    width: 34%;
+    z-index: 3;
+}
+
+body.cf-landing .cf-closing-obj-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 28px rgba(20, 40, 60, 0.14));
+}
+
+body.cf-landing .cf-closing-footer-wrap {
+    width: 100%;
+}
+
+/* Scene 08: Full-Screen Split Liquid Glass Login (Static fallback + Fixed Scrolled Portal) */
+body.cf-landing .cf-scene-login-portal {
+    position: relative;
+    background-color: var(--cf-landing-navy);
+    color: var(--cf-landing-soft-white);
+    padding: clamp(4.5rem, 8vh, 6.5rem) 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+body.cf-landing .cf-scene-login-backdrop {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(64rem 42rem at 16% 18%, rgba(167, 123, 91, 0.12) 0%, transparent 64%),
+        radial-gradient(54rem 38rem at 86% 78%, rgba(169, 184, 164, 0.08) 0%, transparent 62%),
+        var(--cf-landing-navy);
+    pointer-events: none;
+    z-index: 0;
+}
+
+body.cf-landing .cf-scene-login-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1240px;
+}
+
+body.cf-landing .cf-scene-login-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 460px);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+}
+
+body.cf-landing .cf-scene-login-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--cf-landing-warm-brown);
+    margin-bottom: 1.1rem;
+}
+
+body.cf-landing .cf-scene-login-eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--cf-landing-warm-brown);
+}
+
+body.cf-landing .cf-scene-login-wordmark {
+    margin: 0 0 0.75rem;
+    font-size: clamp(2.65rem, 5.2vw, 4.5rem);
+    font-weight: 800;
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing .cf-scene-login-wordmark-dot {
+    color: var(--cf-landing-warm-brown);
+}
+
+body.cf-landing .cf-scene-login-tagline {
+    font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: rgba(247, 248, 250, 0.90);
+    margin: 0 0 1rem;
+}
+
+body.cf-landing .cf-scene-login-copy {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: rgba(247, 248, 250, 0.68);
+    max-width: 44ch;
+    margin: 0 0 2rem;
+}
+
+body.cf-landing .cf-scene-login-back-btn {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 44px;
+    padding: 0.62rem 1.2rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(247, 248, 250, 0.22);
+    background-color: rgba(247, 248, 250, 0.06);
+    color: var(--cf-landing-soft-white);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+body.cf-landing .cf-scene-login-back-btn:hover {
+    background-color: rgba(247, 248, 250, 0.14);
+    border-color: var(--cf-landing-warm-brown);
+    transform: translateX(-2px);
+}
+
+body.cf-landing .cf-scene-login-back-btn:focus-visible {
+    outline: 2px solid var(--cf-landing-warm-brown);
+    outline-offset: 2px;
+}
+
+/* Liquid Glass Login Panel */
+body.cf-landing .cf-lg-login-panel {
+    --cf-login-mx: 50%;
+    --cf-login-my: 22%;
+    position: relative;
+    border-radius: 1.65rem;
+    overflow: hidden;
+    border: 1px solid rgba(247, 248, 250, 0.24);
+    background: linear-gradient(
+        155deg,
+        rgba(247, 248, 250, 0.14) 0%,
+        rgba(240, 243, 246, 0.08) 52%,
+        rgba(20, 40, 60, 0.36) 100%
+    );
+    box-shadow:
+        0 28px 64px rgba(8, 17, 27, 0.44),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28),
+        inset 0 -1px 0 rgba(167, 123, 91, 0.18);
+}
+
+body.cf-landing .cf-lg-login-refract {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    -webkit-backdrop-filter: blur(22px) saturate(1.45);
+    backdrop-filter: blur(22px) saturate(1.45);
+}
+
+body.cf-landing.is-optical-active:not(.is-fallback-forced) .cf-lg-login-refract {
+    -webkit-backdrop-filter: url(#cf-lg-login-filter) blur(16px) saturate(1.55);
+    backdrop-filter: url(#cf-lg-login-filter) blur(16px) saturate(1.55);
+}
+
+body.cf-landing .cf-lg-login-specular {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(
+        340px circle at var(--cf-login-mx) var(--cf-login-my),
+        rgba(255, 255, 255, 0.20) 0%,
+        rgba(167, 123, 91, 0.08) 42%,
+        transparent 74%
+    );
+}
+
+body.cf-landing .cf-lg-login-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.40) 0%,
+        rgba(255, 255, 255, 0.12) 36%,
+        rgba(167, 123, 91, 0.22) 74%,
+        rgba(255, 255, 255, 0.08) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 3;
+}
+
+body.cf-landing .cf-lg-login-content {
+    position: relative;
+    z-index: 2;
+    padding: clamp(1.65rem, 3vw, 2.35rem);
+}
+
+body.cf-landing .cf-lg-login-header {
+    margin-bottom: 1.35rem;
+}
+
+body.cf-landing .cf-lg-login-title {
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--cf-landing-soft-white);
+    margin: 0 0 0.3rem;
+}
+
+body.cf-landing .cf-lg-login-subtitle {
+    font-size: 0.9rem;
+    color: rgba(247, 248, 250, 0.72);
+    margin: 0;
+}
+
+/* Scoped Shared Login Form Typography Inside Liquid Glass Card */
+body.cf-landing .cf-login-form--glass .form-label,
+body.cf-landing .cf-login-form--glass .form-label.text-dark {
+    color: rgba(247, 248, 250, 0.94) !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+body.cf-landing .cf-login-form--glass .form-control {
+    background-color: rgba(247, 248, 250, 0.10);
+    border: 1px solid rgba(247, 248, 250, 0.22);
+    color: var(--cf-landing-soft-white);
+    min-height: 44px;
+    border-radius: 0.75rem;
+}
+
+body.cf-landing .cf-login-form--glass .form-control::placeholder {
+    color: rgba(247, 248, 250, 0.48);
+}
+
+body.cf-landing .cf-login-form--glass .form-control:focus {
+    background-color: rgba(247, 248, 250, 0.14);
+    border-color: var(--cf-landing-warm-brown);
+    box-shadow: 0 0 0 3px rgba(167, 123, 91, 0.26);
+    color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing .cf-login-form--glass .input-group-text,
+body.cf-landing .cf-login-form--glass .input-group-text.bg-light {
+    background-color: rgba(247, 248, 250, 0.08) !important;
+    border: 1px solid rgba(247, 248, 250, 0.22);
+    color: rgba(247, 248, 250, 0.78) !important;
+}
+
+body.cf-landing .cf-login-form--glass .btn-outline-secondary {
+    background-color: rgba(247, 248, 250, 0.08);
+    border: 1px solid rgba(247, 248, 250, 0.22);
+    color: rgba(247, 248, 250, 0.86);
+}
+
+body.cf-landing .cf-login-form--glass .cf-login-glass-submit {
+    background-color: var(--cf-landing-soft-white);
+    color: var(--cf-landing-navy);
+    border: 1px solid var(--cf-landing-soft-white);
+    min-height: 46px;
+    border-radius: 9999px;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.cf-landing .cf-login-form--glass .cf-login-glass-submit:hover:not(:disabled) {
+    background-color: var(--cf-landing-white);
+    color: var(--cf-landing-navy);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(8, 17, 27, 0.34);
+}
+
+body.cf-landing .cf-login-form--glass #cf-forgot-pwd-link,
+body.cf-landing .cf-login-form--glass .text-primary {
+    color: rgba(247, 248, 250, 0.84) !important;
+}
+
+body.cf-landing .cf-login-form--glass #cf-forgot-pwd-link:hover,
+body.cf-landing .cf-login-form--glass .text-primary:hover {
+    color: var(--cf-landing-warm-brown) !important;
+}
+
+body.cf-landing .cf-login-form--glass .border-top {
+    border-top-color: rgba(247, 248, 250, 0.16) !important;
+}
+
+body.cf-landing .cf-login-form--glass .text-muted {
+    color: rgba(247, 248, 250, 0.68) !important;
+}
+
+body.cf-landing .cf-login-form--glass .extra-small {
+    font-size: 0.78rem;
+}
+
+body.cf-landing .cf-login-form--glass .text-success {
+    color: var(--cf-landing-muted-sage) !important;
+}
+
+body.cf-landing .cf-lg-login-authed-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+body.cf-landing .cf-lg-login-authed-actions .cf-hero-btn--primary {
+    background-color: var(--cf-landing-soft-white);
+    color: var(--cf-landing-navy);
+}
+
+body.cf-landing .cf-lg-login-authed-actions .cf-hero-btn--secondary {
+    color: var(--cf-landing-soft-white);
+    border-color: rgba(247, 248, 250, 0.28);
+}
+
+/* =============================================================
+   ACTIVE SINGLE-VIEWPORT SCENE ARCHITECTURE (Non-Reduced Motion)
+   Scoped strictly to landing page active cinematic mode only
+   ============================================================= */
+
+html.cf-narrative-lock,
+html:has(body.cf-landing.cf-narrative-active),
+body.cf-landing.cf-narrative-active {
+    overflow: hidden !important;
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
+    overscroll-behavior: none;
+    scroll-behavior: auto !important;
+}
+
+body.cf-landing.cf-narrative-active .cf-stage-viewport {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100svh;
+    overflow: hidden;
+    z-index: 1;
+    background-color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    display: flex;
+    flex-direction: column;
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer.is-scene-active {
+    z-index: 2;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer.is-scene-leaving {
+    z-index: 2;
+    visibility: visible;
+    pointer-events: none;
+    will-change: opacity, transform;
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer.is-scene-entering {
+    z-index: 3;
+    visibility: visible;
+    pointer-events: none;
+    will-change: opacity, transform;
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer--hero.is-scene-curtain-fg,
+body.cf-landing.cf-narrative-active .cf-scene-layer--hero.is-scene-underlay {
+    z-index: 3;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+    will-change: transform;
+    box-shadow: 24px 0 64px rgba(20, 40, 60, 0.12);
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-curtain-bg,
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-cover,
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-receding-bg {
+    z-index: 2;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* Batch 3: Deep Navy How It Works Curtain Takeover */
+body.cf-landing.cf-narrative-active .cf-scene-layer--hiw.is-scene-curtain-navy {
+    z-index: 4;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+    will-change: transform;
+    box-shadow: -35px 0 75px rgba(10, 20, 30, 0.40);
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer--hiw.is-scene-curtain-navy::before {
+    content: '';
+    position: absolute;
+    top: -5%;
+    bottom: -5%;
+    left: -70px;
+    width: 70px;
+    background: linear-gradient(to right, transparent 0%, rgba(20, 40, 60, 0.35) 25%, #14283C 100%);
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    pointer-events: none;
+    box-shadow: -30px 0 50px rgba(10, 20, 30, 0.35);
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer--hero.is-scene-curtain-fg .cf-hero-scrub-wrap,
+body.cf-landing.cf-narrative-active .cf-scene-layer--hero.is-scene-curtain-fg .cf-hero-scrub-obj,
+body.cf-landing.cf-narrative-active .cf-scene-layer--hero.is-scene-underlay .cf-hero-scrub-wrap,
+body.cf-landing.cf-narrative-active .cf-scene-layer--hero.is-scene-underlay .cf-hero-scrub-obj {
+    will-change: transform;
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-curtain-bg .cf-recent-heading-wrap,
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-curtain-bg .cf-recent-controls-bar,
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-curtain-bg .cf-recent-slide,
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-curtain-bg .cf-recent-gated,
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-cover .cf-recent-heading-wrap,
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-cover .cf-recent-controls-bar,
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-cover .cf-recent-slide,
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-cover .cf-recent-gated,
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-receding-bg .cf-recent-heading-wrap,
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-receding-bg .cf-recent-controls-bar,
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-receding-bg .cf-recent-slide,
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent.is-scene-receding-bg .cf-recent-gated,
+body.cf-landing.cf-narrative-active .cf-scene-layer--hiw.is-scene-curtain-navy .cf-hiw-heading-wrap {
+    will-change: transform, opacity;
+}
+
+/* Batch 4: Soft White Journey CTA Curtain Takeover & Withdrawing HIW */
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta.is-scene-curtain-white {
+    z-index: 5;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+    will-change: transform;
+    box-shadow: -35px 0 75px rgba(10, 20, 30, 0.22);
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta.is-scene-curtain-white::before {
+    content: '';
+    position: absolute;
+    top: -5%;
+    bottom: -5%;
+    left: -60px;
+    width: 60px;
+    background: linear-gradient(to right, transparent 0%, rgba(247, 248, 250, 0.45) 30%, #F7F8FA 100%);
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    pointer-events: none;
+    box-shadow: -25px 0 45px rgba(20, 40, 60, 0.16);
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer--hiw.is-scene-withdrawing-hiw {
+    z-index: 3;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+    will-change: transform;
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta.is-scene-curtain-white .cf-final-cta-eyebrow,
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta.is-scene-curtain-white .cf-final-cta-title,
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta.is-scene-curtain-white .cf-final-cta-desc,
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta.is-scene-curtain-white .cf-final-cta-btn,
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta.is-scene-curtain-white .cf-final-cta-secondary,
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta.is-scene-underlay .cf-final-cta-eyebrow,
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta.is-scene-underlay .cf-final-cta-title,
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta.is-scene-underlay .cf-final-cta-desc,
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta.is-scene-underlay .cf-final-cta-btn,
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta.is-scene-underlay .cf-final-cta-secondary,
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-scene-cover .cf-closing-eyebrow,
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-scene-cover .cf-closing-title,
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-scene-cover .cf-closing-desc,
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-scene-cover .cf-closing-actions,
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-scene-cover .cf-closing-obj,
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-scene-cover .cf-closing-footer-wrap,
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-closing-converging .cf-closing-eyebrow,
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-closing-converging .cf-closing-title,
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-closing-converging .cf-closing-desc,
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-closing-converging .cf-closing-actions,
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-closing-converging .cf-closing-obj,
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-closing-converging .cf-closing-footer-wrap,
+body.cf-landing.cf-narrative-active .cf-scene-login-portal.is-login-entering #cf-scene-login-brand,
+body.cf-landing.cf-narrative-active .cf-scene-login-portal.is-login-entering #cf-scene-login-card-wrap,
+body.cf-landing.cf-narrative-active .cf-scene-login-portal.is-login-entering .cf-lg-login-header,
+body.cf-landing.cf-narrative-active .cf-scene-login-portal.is-login-entering .cf-login-form--glass .mb-3,
+body.cf-landing.cf-narrative-active .cf-scene-login-portal.is-login-entering #btn-submit-login,
+body.cf-landing.cf-narrative-active .cf-scene-login-portal.is-login-entering .cf-login-form--glass .border-top {
+    will-change: transform, opacity;
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-closing-converging .cf-closing-obj {
+    animation: none !important;
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-login-portal.is-login-entering #cf-scene-login-backdrop {
+    will-change: clip-path, opacity;
+}
+
+/* Batch 4: Subtle ambient floating for Closing 3D objects */
+@keyframes cfClosingFloatNotebook {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(-3px, -5px, 0); }
+}
+@keyframes cfClosingFloatWallet {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(4px, -4px, 0); }
+}
+@keyframes cfClosingFloatKeys {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50% { transform: translate3d(-2px, 5px, 0); }
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-scene-active:not(.is-scene-cover):not(.is-scene-leaving) .cf-closing-obj--notebook {
+    animation: cfClosingFloatNotebook 6.8s ease-in-out infinite;
+}
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-scene-active:not(.is-scene-cover):not(.is-scene-leaving) .cf-closing-obj--wallet {
+    animation: cfClosingFloatWallet 7.4s ease-in-out infinite 0.8s;
+}
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing.is-scene-active:not(.is-scene-cover):not(.is-scene-leaving) .cf-closing-obj--keys {
+    animation: cfClosingFloatKeys 6.2s ease-in-out infinite 1.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.cf-landing.cf-narrative-active .cf-closing-obj--notebook,
+    body.cf-landing.cf-narrative-active .cf-closing-obj--wallet,
+    body.cf-landing.cf-narrative-active .cf-closing-obj--keys {
+        animation: none !important;
+    }
+}
+
+body.cf-landing .cf-hero-scrub-obj {
+    width: 100%;
+    height: 100%;
+}
+
+body.cf-landing.cf-narrative-active .cf-hero-btn.is-hero-btn-animating {
+    transition: none !important;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell.is-hiw-subtransitioning .cf-hiw-choice-wrap,
+body.cf-landing.cf-narrative-active .cf-hiw-shell.is-hiw-subtransitioning .cf-hiw-showcase,
+body.cf-landing.cf-narrative-active .cf-hiw-panel-inner.is-hiw-raf-animating {
+    will-change: opacity, transform;
+}
+
+/* Scene Layer 1: Hero */
+body.cf-landing.cf-narrative-active .cf-scene-layer--hero {
+    background-color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer--hero .cf-hero {
+    width: 100%;
+    min-height: 100%;
+    flex: 1 0 auto;
+    padding: clamp(5.25rem, 8.2vw, 6.75rem) 0 clamp(2.25rem, 4.5vh, 3.75rem);
+}
+
+/* Scene Layer 2: Recently Reported */
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent {
+    background-color: var(--cf-landing-cool-gray);
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer--recent .cf-recent {
+    width: 100%;
+    margin: auto 0;
+    flex: 0 0 auto;
+    background: transparent;
+    border-top: 0;
+    padding: clamp(5.25rem, 8vh, 6rem) 0 clamp(2rem, 3.8vh, 3rem);
+}
+
+/* Scene Layer 3: How It Works */
+body.cf-landing.cf-narrative-active .cf-scene-layer--hiw {
+    background-color: var(--cf-landing-navy);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    flex: 1 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    background-color: var(--cf-landing-navy);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-sticky {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    padding: clamp(5.25rem, 9vh, 6.75rem) 0 clamp(2rem, 4vh, 3rem);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-container {
+    width: 100%;
+    max-width: 1320px;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell {
+    display: grid;
+    grid-template-columns: 272px minmax(0, 1fr);
+    gap: clamp(1.75rem, 3.5vw, 3.5rem);
+    align-items: center;
+    position: relative;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-rail {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    margin-bottom: 0;
+    gap: 1.15rem;
+    position: relative;
+    z-index: 3;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-heading-wrap {
+    max-width: none;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-showcase {
+    min-width: 0;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-stepper-wrap {
+    margin-bottom: clamp(1.1rem, 2.2vh, 1.65rem);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-panel {
+    padding: clamp(1.5rem, 2.8vw, 2.5rem);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-panel-title {
+    font-size: clamp(1.55rem, 2.5vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.028em;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-panel-card {
+    padding: 1.4rem;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-tab-indicator {
+    display: none;
+}
+
+/* State A (hiw-intro) & State B (hiw-journey-selection): Centered Editorial Composition */
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="intro"],
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="intro"] .cf-hiw-rail,
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-rail {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: min(1080px, 100%);
+    gap: clamp(1.75rem, 3.6vh, 2.75rem);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="intro"] .cf-hiw-heading-wrap,
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-heading-wrap {
+    max-width: min(1040px, 100%);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="intro"] .cf-hiw-eyebrow,
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-eyebrow {
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="intro"] .cf-hiw-title {
+    font-size: clamp(3.15rem, 8.6vw, 7rem);
+    font-weight: 850;
+    line-height: 0.94;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+    margin: 0 0 1.25rem;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-title {
+    font-size: clamp(2.75rem, 6.6vw, 5.25rem);
+    font-weight: 850;
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin: 0 0 0.85rem;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="intro"] .cf-hiw-subtitle,
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50ch;
+    font-size: clamp(0.96rem, 1.25vw, 1.14rem);
+    line-height: 1.6;
+    color: rgba(247, 248, 250, 0.72);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="intro"] .cf-hiw-choice-wrap,
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="intro"] .cf-hiw-showcase,
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-showcase {
+    display: none;
+}
+
+/* State B: Distinct Prominent Journey Destination Choices */
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-choice-wrap {
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-journey-switch {
+    width: 100%;
+    max-width: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-journey-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    text-align: left;
+    min-height: clamp(120px, 15vh, 154px);
+    padding: clamp(1.25rem, 2.2vw, 1.75rem);
+    border-radius: 1.25rem;
+    border: 1px solid rgba(247, 248, 250, 0.16);
+    background-color: rgba(247, 248, 250, 0.045);
+    color: var(--cf-landing-soft-white);
+    white-space: normal;
+    transition: background-color 0.24s ease, border-color 0.24s ease, color 0.24s ease, box-shadow 0.24s ease;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-choice-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1.15rem;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-choice-kicker {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: rgba(247, 248, 250, 0.62);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-choice-arrow {
+    font-size: 1.15rem;
+    line-height: 1;
+    color: var(--cf-landing-warm-brown);
+    transition: transform 0.24s ease;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-choice-label {
+    display: block;
+    font-size: clamp(1.12rem, 1.75vw, 1.45rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    line-height: 1.15;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-journey-tab:hover {
+    background-color: rgba(247, 248, 250, 0.09);
+    border-color: rgba(167, 123, 91, 0.72);
+    color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-journey-tab:hover .cf-hiw-choice-arrow {
+    transform: translateX(4px);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-journey-tab.is-active {
+    background-color: var(--cf-landing-soft-white);
+    border-color: var(--cf-landing-warm-brown);
+    color: var(--cf-landing-navy);
+    box-shadow: 0 20px 44px rgba(8, 17, 27, 0.34), 0 0 0 1px rgba(167, 123, 91, 0.45);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-journey-tab.is-active .cf-hiw-choice-kicker {
+    color: var(--cf-landing-dark-brown);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-journey-tab.is-active .cf-hiw-choice-arrow {
+    color: var(--cf-landing-navy);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-journey-tab:focus-visible {
+    outline: 2px solid var(--cf-landing-warm-brown);
+    outline-offset: 3px;
+}
+
+/* State C (hiw-lost-1..5 / hiw-found-1..5): Compact Navigation Rail + Spacious Stage */
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-heading-wrap {
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(247, 248, 250, 0.12);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-eyebrow {
+    font-size: 0.7rem;
+    margin-bottom: 0.45rem;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-title {
+    font-size: clamp(1.25rem, 1.7vw, 1.55rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-subtitle {
+    display: none;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-choice-wrap {
+    width: 100%;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-journey-switch {
+    width: 100%;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-journey-tab {
+    width: 100%;
+    min-height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding: 0.7rem 0.95rem;
+    border-radius: 0.9rem;
+    border: 1px solid rgba(247, 248, 250, 0.16);
+    background-color: rgba(247, 248, 250, 0.045);
+    color: rgba(247, 248, 250, 0.86);
+    white-space: normal;
+    transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-choice-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 0.2rem;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-choice-kicker {
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(247, 248, 250, 0.58);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-choice-arrow {
+    font-size: 0.85rem;
+    line-height: 1;
+    color: var(--cf-landing-warm-brown);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-choice-label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 750;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-journey-tab:hover {
+    background-color: rgba(247, 248, 250, 0.10);
+    border-color: rgba(167, 123, 91, 0.58);
+    color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-journey-tab.is-active {
+    background-color: var(--cf-landing-soft-white);
+    border-color: var(--cf-landing-warm-brown);
+    color: var(--cf-landing-navy);
+    box-shadow: 0 10px 26px rgba(8, 17, 27, 0.28);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-journey-tab.is-active .cf-hiw-choice-kicker {
+    color: var(--cf-landing-dark-brown);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-journey-tab.is-active .cf-hiw-choice-arrow {
+    color: var(--cf-landing-navy);
+}
+
+body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-journey-tab:focus-visible {
+    outline: 2px solid var(--cf-landing-warm-brown);
+    outline-offset: 2px;
+}
+
+/* Scene Layer 4: Journey-Specific Completion CTA */
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta {
+    background-color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-layer--cta .cf-final-cta {
+    width: 100%;
+    margin: auto 0;
+    border-top: 0;
+    padding: clamp(5.25rem, 8vh, 6.25rem) 0 clamp(2.5rem, 4vh, 3.5rem);
+}
+
+body.cf-landing.cf-narrative-active .cf-final-cta-inner.cf-reveal-pending {
+    opacity: 1;
+    transform: none;
+}
+
+/* Scene Layer 5: Emotional Closing + Footer */
+body.cf-landing.cf-narrative-active .cf-scene-layer--closing {
+    background-color: var(--cf-landing-soft-white);
+}
+
+body.cf-landing.cf-narrative-active .cf-closing {
+    width: 100%;
+    min-height: 100%;
+    flex: 1 0 auto;
+}
+
+body.cf-landing.cf-narrative-active .cf-closing-upper {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    padding: 5.25rem 0 1.5rem;
+}
+
+body.cf-landing.cf-narrative-active .cf-closing-footer-wrap .cf-landing-footer {
+    padding: clamp(1.5rem, 2.6vh, 2.35rem) 0 1.25rem;
+}
+
+/* Shared Overlay Layer: Full-Screen Liquid Glass Login Portal (outside transformed ancestors) */
+body.cf-landing.cf-narrative-active .cf-scene-login-portal {
+    position: fixed;
+    inset: 0;
+    z-index: 1052;
+    padding: clamp(1.5rem, 4vh, 3rem) 0;
+    background: transparent;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-login-portal.is-portal-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-login-portal.is-portal-transitioning {
+    visibility: visible;
+    will-change: opacity, transform;
+}
+
+body.cf-landing.cf-narrative-active .cf-scene-login-portal.is-portal-interactive {
+    pointer-events: auto;
+}
+
+/* Hide top guest dock smoothly when Login portal scene is active */
+body.cf-landing.cf-narrative-active .cf-guest-nav-dock.is-scene-hidden {
+    opacity: 0;
+    transform: translate3d(0, -135%, 0);
+    pointer-events: none;
+}
+
+/* Tablet Proportional Rail (768px - 1023.98px) */
+@media (max-width: 1023.98px) and (min-width: 768px) {
+    body.cf-landing.cf-narrative-active .cf-hiw-shell {
+        grid-template-columns: 215px minmax(0, 1fr);
+        gap: 1.35rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="intro"] .cf-hiw-title {
+        font-size: clamp(3rem, 7.6vw, 4.75rem);
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-title {
+        font-size: clamp(2.5rem, 6.2vw, 3.85rem);
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-panel {
+        padding: 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+    }
+
+    body.cf-landing .cf-hiw-coverflow-viewport {
+        height: clamp(420px, 54vh, 480px);
+        perspective: 1000px;
+    }
+
+    body.cf-landing .cf-hiw-card-3d {
+        width: clamp(310px, 42vw, 370px);
+        height: clamp(390px, 50vh, 450px);
+    }
+
+    body.cf-landing .cf-hiw-card-surface {
+        padding: 1.25rem;
+    }
+
+    body.cf-landing .cf-hiw-card-title {
+        font-size: 1.18rem;
+    }
+
+    body.cf-landing .cf-hiw-card-desc {
+        font-size: 0.84rem;
+        margin-bottom: 0.5rem;
+    }
+
+    body.cf-landing .cf-hiw-card-point {
+        font-size: 0.78rem;
+    }
+}
+
+/* Tablet & Mobile Non-HIW Stage Refinements */
+@media (max-width: 899.98px) {
+    body.cf-landing .cf-closing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.cf-landing .cf-closing-visuals {
+        height: 200px;
+        max-width: 340px;
+        margin: 0 auto;
+    }
+}
+
+/* Tablet Split Refinement (768px - 1023.98px) */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+    body.cf-landing .cf-scene-login-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 390px);
+        gap: 2rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-scene-login-wordmark {
+        font-size: clamp(2.15rem, 4.5vw, 2.9rem);
+    }
+
+    body.cf-landing.cf-narrative-active .cf-scene-login-copy {
+        font-size: 0.92rem;
+        margin-bottom: 1.4rem;
+        display: block !important;
+    }
+}
+
+/* Mobile Compact Layout (< 768px, e.g. 390x844) */
+@media (max-width: 767.98px) {
+    body.cf-landing .cf-scene-login-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-scene-login-portal {
+        align-items: flex-start;
+        padding: 1.5rem 0 2.5rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-scene-login-wordmark {
+        font-size: clamp(1.85rem, 8vw, 2.35rem);
+        margin-bottom: 0.3rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-scene-login-tagline {
+        font-size: 0.92rem;
+        margin-bottom: 0.4rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-scene-login-copy {
+        display: none;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-scene-login-back-btn {
+        min-height: 38px;
+        padding: 0.42rem 0.95rem;
+        font-size: 0.82rem;
+        margin-bottom: 0.4rem;
+    }
+
+    body.cf-landing .cf-lg-login-panel {
+        border-radius: 1.25rem;
+    }
+
+    body.cf-landing .cf-lg-login-content {
+        padding: 1.25rem 1rem;
+    }
+}
+
+/* Mobile Compact Top Navigation Arrangement & Clean Editorial Flow (<= 767.98px, e.g. 390x844) */
+@media (max-width: 767.98px) {
+    body.cf-landing.cf-narrative-active .cf-hiw-sticky {
+        align-items: center;
+        padding: 5.15rem 0 1.5rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="intro"] .cf-hiw-title {
+        font-size: clamp(2.45rem, 11.5vw, 3.5rem);
+        margin-bottom: 0.9rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-rail {
+        gap: 1.25rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-title {
+        font-size: clamp(2.05rem, 9.2vw, 2.85rem);
+        margin-bottom: 0.6rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-subtitle {
+        font-size: 0.9rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-journey-switch {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-journey-tab {
+        min-height: 88px;
+        padding: 1rem 1.15rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-choice-top {
+        margin-bottom: 0.55rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="choice"] .cf-hiw-choice-label {
+        font-size: 1.05rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+        align-content: start;
+        align-self: flex-start;
+        width: 100%;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-sticky,
+    body.cf-landing.cf-narrative-active .cf-scene-layer--hiw:has(.cf-hiw-shell[data-stage-phase="stages"]) .cf-hiw-sticky {
+        align-items: flex-start;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-rail {
+        gap: 0.55rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-heading-wrap {
+        padding-bottom: 0;
+        border-bottom: 0;
+        text-align: left;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-eyebrow {
+        display: none;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-title {
+        font-size: 1.05rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-journey-switch {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-journey-tab {
+        min-height: 44px;
+        padding: 0.55rem 0.65rem;
+        border-radius: 0.75rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-choice-top {
+        display: none;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-choice-label {
+        font-size: 0.76rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-stepper-wrap {
+        margin-bottom: 0.75rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-panel {
+        padding: 0;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        overflow: hidden;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell[data-stage-phase="stages"] .cf-hiw-showcase {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    body.cf-landing .cf-hiw-coverflow-viewport {
+        height: clamp(380px, 52vh, 430px);
+        perspective: 750px;
+        overflow: hidden;
+    }
+
+    body.cf-landing .cf-hiw-card-3d {
+        width: clamp(275px, 80vw, 320px);
+        height: clamp(360px, 48vh, 410px);
+    }
+
+    body.cf-landing .cf-hiw-card-surface {
+        padding: 1rem;
+        border-radius: 1.15rem;
+    }
+
+    body.cf-landing .cf-hiw-card-top {
+        margin-bottom: 0.45rem;
+    }
+
+    body.cf-landing .cf-hiw-card-icon-wrap {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+
+    body.cf-landing .cf-hiw-card-badge {
+        padding: 0.25rem 0.55rem;
+        font-size: 0.72rem;
+    }
+
+    body.cf-landing .cf-hiw-card-num {
+        font-size: 1.6rem;
+    }
+
+    body.cf-landing .cf-hiw-card-step-meta {
+        font-size: 0.70rem;
+    }
+
+    body.cf-landing .cf-hiw-card-main {
+        justify-content: flex-start;
+        flex: 1 1 auto;
+        min-height: 0;
+    }
+
+    body.cf-landing .cf-hiw-card-title {
+        font-size: 1.05rem;
+        margin-bottom: 0.35rem;
+    }
+
+    body.cf-landing .cf-hiw-card-desc {
+        font-size: 0.82rem;
+        line-height: 1.45;
+        margin-bottom: 0;
+    }
+
+    body.cf-landing .cf-hiw-card-points {
+        display: none;
+    }
+
+    body.cf-landing .cf-hiw-card-point {
+        font-size: 0.74rem;
+        line-height: 1.35;
+    }
+
+    body.cf-landing .cf-hiw-card-footer {
+        padding-top: 0.45rem;
+        margin-top: 0.35rem;
+    }
+
+    body.cf-landing .cf-hiw-card-actor {
+        max-width: 120px;
+        font-size: 0.78rem;
+    }
+
+    body.cf-landing .cf-hiw-card-nav .cf-hiw-step-nav-btn {
+        padding: 0.35rem 0.65rem;
+        min-height: 32px;
+        font-size: 0.72rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    body.cf-landing.cf-narrative-active .cf-scene-layer--hero .cf-hero {
+        padding: 4.75rem 0 1.5rem;
+        align-items: flex-start;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hero-row {
+        row-gap: 1.15rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hero-title {
+        font-size: clamp(2.35rem, 10.5vw, 2.9rem);
+        margin-bottom: 0.7rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hero-subtitle {
+        font-size: 0.94rem;
+        margin-bottom: 1rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hero-actions {
+        gap: 0.55rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hero-btn {
+        padding: 0.78rem 1.2rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hero-stage {
+        height: 215px;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-closing-upper {
+        padding: 4.5rem 0 0.75rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-closing-title {
+        font-size: 2rem;
+        margin-bottom: 0.65rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-closing-desc {
+        font-size: 0.9rem;
+        margin-bottom: 1.1rem;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-closing-visuals {
+        height: 135px;
+    }
+}
+
+/* Reduced motion & non-active fallback forces clean vertical document progression with zero hidden scenes */
+@media (prefers-reduced-motion: reduce) {
+    html.cf-narrative-lock,
+    html:has(body.cf-landing.cf-narrative-active),
+    body.cf-landing.cf-narrative-active {
+        overflow: visible !important;
+        overflow-x: hidden !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-stage-viewport {
+        position: relative !important;
+        inset: auto !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-scene-layer {
+        position: relative !important;
+        inset: auto !important;
+        height: auto !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        overflow: visible !important;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell,
+    body.cf-landing.cf-narrative-active .cf-hiw-choice-wrap,
+    body.cf-landing.cf-narrative-active .cf-hiw-showcase {
+        display: block !important;
+        opacity: 1 !important;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-shell {
+        grid-template-columns: 1fr !important;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-rail {
+        align-items: flex-start !important;
+        text-align: left !important;
+        margin-bottom: 2rem !important;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-title {
+        font-size: clamp(2.25rem, 4vw, 3.35rem) !important;
+        text-transform: none !important;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-subtitle {
+        display: block !important;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-journey-switch {
+        display: inline-grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        max-width: 380px !important;
+        padding: 0.32rem !important;
+        border: 1px solid rgba(247, 248, 250, 0.14) !important;
+        border-radius: var(--cf-landing-radius-pill) !important;
+        background-color: rgba(247, 248, 250, 0.07) !important;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-tab-indicator {
+        display: block !important;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-journey-tab {
+        min-height: 0 !important;
+        padding: 0.65rem 1.2rem !important;
+        border: 0 !important;
+        background: transparent !important;
+        text-align: center !important;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-journey-tab.is-active {
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    body.cf-landing.cf-narrative-active .cf-hiw-choice-top {
+        display: none !important;
+    }
+
+    body.cf-landing .cf-scene-login-portal {
+        position: relative !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: none !important;
+    }
+}
+
+/* =============================================================
+   18. STANDALONE LOGIN SCENE ENTRANCE ANIMATION PARITY (FLOW-01.1)
+   Reproduces the exact entrance animation language of the landing scene:
+   1. Atmosphere & backdrop reveal (scale & opacity)
+   2. Left brand enters smoothly from left (-48px -> 0px, scale 0.96 -> 1.0)
+   3. Right glass panel enters smoothly from right (+55px -> 0px, scale 0.95 -> 1.0)
+   4. Form heading & subtitle reveal (+14px -> 0px)
+   5. Credential inputs stagger reveal (+14px -> 0px)
+   6. Submit action & helper links reveal (+14px -> 0px, scale 0.96 -> 1.0)
+   ============================================================= */
+
+@keyframes cfLoginAtmosphereReveal {
+    0% {
+        opacity: 0;
+        transform: scale(1.04);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes cfLoginBrandSlideIn {
+    0% {
+        opacity: 0;
+        transform: translate3d(-48px, 0, 0) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes cfLoginCardSlideIn {
+    0% {
+        opacity: 0;
+        transform: translate3d(55px, 0, 0) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes cfLoginFormItemReveal {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 14px, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes cfLoginSubmitReveal {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 14px, 0) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes cfLoginSimpleFade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Scoped Staggered Entrance Animation for Standalone /login */
+body.cf-landing .cf-scene-login-portal.is-standalone-animating #cf-scene-login-backdrop {
+    animation: cfLoginAtmosphereReveal 0.60s cubic-bezier(0.22, 1, 0.36, 1) 0.00s both;
+    will-change: transform, opacity;
+}
+
+body.cf-landing .cf-scene-login-portal.is-standalone-animating #cf-scene-login-brand {
+    animation: cfLoginBrandSlideIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.06s both;
+    will-change: transform, opacity;
+}
+
+body.cf-landing .cf-scene-login-portal.is-standalone-animating #cf-scene-login-card-wrap {
+    animation: cfLoginCardSlideIn 0.68s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+    will-change: transform, opacity;
+}
+
+body.cf-landing .cf-scene-login-portal.is-standalone-animating #cf-login-scene-back {
+    animation: cfLoginFormItemReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.28s both;
+}
+
+body.cf-landing .cf-scene-login-portal.is-standalone-animating .cf-lg-login-header {
+    animation: cfLoginFormItemReveal 0.50s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
+    will-change: transform, opacity;
+}
+
+body.cf-landing .cf-scene-login-portal.is-standalone-animating .cf-lg-login-content .alert,
+body.cf-landing .cf-scene-login-portal.is-standalone-animating .cf-login-inline-error {
+    animation: cfLoginFormItemReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.30s both;
+}
+
+body.cf-landing .cf-scene-login-portal.is-standalone-animating .cf-login-group-identity,
+body.cf-landing .cf-scene-login-portal.is-standalone-animating .cf-login-form--glass .mb-3:first-of-type {
+    animation: cfLoginFormItemReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.34s both;
+    will-change: transform, opacity;
+}
+
+body.cf-landing .cf-scene-login-portal.is-standalone-animating .cf-login-group-password,
+body.cf-landing .cf-scene-login-portal.is-standalone-animating .cf-login-form--glass .mb-3:nth-of-type(2) {
+    animation: cfLoginFormItemReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.42s both;
+    will-change: transform, opacity;
+}
+
+body.cf-landing .cf-scene-login-portal.is-standalone-animating #btn-submit-login {
+    animation: cfLoginSubmitReveal 0.48s cubic-bezier(0.22, 1, 0.36, 1) 0.50s both;
+    will-change: transform, opacity;
+}
+
+body.cf-landing .cf-scene-login-portal.is-standalone-animating .cf-login-form--glass .border-top {
+    animation: cfLoginSimpleFade 0.40s cubic-bezier(0.22, 1, 0.36, 1) 0.58s both;
+    will-change: opacity;
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+    body.cf-landing .cf-scene-login-portal.is-standalone-animating *,
+    body.cf-landing .cf-scene-login-portal.is-standalone-animating #cf-scene-login-backdrop,
+    body.cf-landing .cf-scene-login-portal.is-standalone-animating #cf-scene-login-brand,
+    body.cf-landing .cf-scene-login-portal.is-standalone-animating #cf-scene-login-card-wrap,
+    body.cf-landing .cf-scene-login-portal.is-standalone-animating .cf-lg-login-header,
+    body.cf-landing .cf-scene-login-portal.is-standalone-animating .cf-login-group-identity,
+    body.cf-landing .cf-scene-login-portal.is-standalone-animating .cf-login-group-password,
+    body.cf-landing .cf-scene-login-portal.is-standalone-animating #btn-submit-login,
+    body.cf-landing .cf-scene-login-portal.is-standalone-animating .cf-login-form--glass .border-top {
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+

@@ -1,0 +1,74 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Campus Find CLI Runner (Prompt 20)
+ *
+ * Penggunaan:
+ *   php bin/campus notifications:send [--limit=20]
+ *   php bin/campus notifications:stats
+ *   php bin/campus notifications:reset-circuit
+ */
+
+define('BASE_PATH', dirname(__DIR__));
+require_once BASE_PATH . '/vendor/autoload.php';
+
+use Dotenv\Dotenv;
+Dotenv::createImmutable(BASE_PATH)->safeLoad();
+
+use App\Services\Notifications\NotificationOutboxService;
+
+$command = $argv[1] ?? 'help';
+
+switch ($command) {
+    case 'notifications:send':
+    case 'outbox:send':
+        $batchSize = 20;
+        foreach ($argv as $arg) {
+            if (str_starts_with($arg, '--limit=')) {
+                $batchSize = max(1, (int)substr($arg, 8));
+            }
+        }
+
+        $nowStr = date('Y-m-d H:i:s');
+        echo "[{$nowStr}] Memulai worker notifikasi outbox (Limit: {$batchSize})...\n";
+        $res = NotificationOutboxService::processOutbox($batchSize);
+
+        if ($res['circuit_breaker']) {
+            echo "[{$nowStr}] [PERINGATAN] Circuit breaker aktif! Terlalu banyak kegagalan beruntun. Pengiriman email ditangguhkan sementara.\n";
+            exit(2);
+        }
+
+        echo "[{$nowStr}] Selesai. Diproses: {$res['processed']} | Terkirim: {$res['sent']} | Gagal/Batal: {$res['failed']} | Ditunda/Retry: {$res['postponed']}\n";
+        exit(0);
+
+    case 'notifications:stats':
+        $stats = NotificationOutboxService::getStats();
+        echo "=== STATISTIK NOTIFIKASI OUTBOX ===\n";
+        echo "Menunggu (Pending) : {$stats['pending']}\n";
+        echo "Terkirim (Sent)     : {$stats['sent']}\n";
+        echo "Gagal (Failed)      : {$stats['failed']}\n";
+        echo "Dibatalkan          : {$stats['cancelled']}\n";
+        echo "Terkirim Hari Ini   : {$stats['sent_today']} / {$stats['daily_limit']}\n";
+        echo "Circuit Breaker     : " . ($stats['circuit_breaker'] ? 'TRIPPED (Aktif)' : 'NORMAL') . "\n";
+        echo "Kegagalan Beruntun  : {$stats['consecutive_failures']}\n";
+        exit(0);
+
+    case 'notifications:reset-circuit':
+        NotificationOutboxService::resetCircuitBreaker();
+        echo "✓ Circuit breaker berhasil di-reset menjadi status NORMAL.\n";
+        exit(0);
+
+    default:
+        echo "=========================================================\n";
+        echo "  Campus Find CLI Tool — Manajemen Tugas & Worker\n";
+        echo "=========================================================\n";
+        echo "Penggunaan: php bin/campus <command> [options]\n\n";
+        echo "Perintah yang tersedia:\n";
+        echo "  notifications:send [--limit=20]   Memproses antrean pengiriman email outbox\n";
+        echo "  notifications:stats               Menampilkan ringkasan statistik antrean outbox\n";
+        echo "  notifications:reset-circuit       Mereset sakelar circuit breaker jika tripped\n";
+        exit(1);
+}

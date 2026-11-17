@@ -1,0 +1,15 @@
+# Block execution of scripts in uploads
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+
+<FilesMatch "\.(php|php\d|phtml|pl|py|cgi|sh)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Route requests to index.php for authorization via FileController
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^ ../index.php [QSA,L]
+</IfModule>

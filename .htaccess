@@ -1,0 +1,22 @@
+# Root .htaccess — Campus Find Security & Routing Guard
+# Mencegah akses web langsung ke direktori non-publik (database/, app/, core/, storage/, config/)
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. Lindungi file sensitif di root
+    RewriteRule ^\.env - [F,L,NC]
+    RewriteRule ^composer\.(json|lock) - [F,L,NC]
+    RewriteRule ^(app|config|core|database|storage|vendor)/ - [F,L,NC]
+
+    # 2. Redirect / rewrite semua traffic ke folder public/ jika DocumentRoot berada di root
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# Block listing & hidden files
+Options -Indexes
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

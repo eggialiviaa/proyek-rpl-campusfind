@@ -1,0 +1,3 @@
+# storage/logs — Runtime error logs
+# File ini menjaga folder agar ter-commit ke git
+# Log files diabaikan via .gitignore

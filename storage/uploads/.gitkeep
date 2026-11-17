@@ -1,0 +1,3 @@
+# storage/uploads — File upload dari user
+# File ini menjaga folder agar ter-commit ke git
+# File upload diabaikan via .gitignore

@@ -1,0 +1,29 @@
+{
+    "name": "campus-find/campus-find",
+    "description": "Campus Find - Lost & Found System for academic campus",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "vlucas/phpdotenv": "^5.6",
+        "phpmailer/phpmailer": "^7.1",
+        "phpoffice/phpspreadsheet": "^5.10"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Core\\": "core/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
