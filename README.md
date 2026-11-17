@@ -23,8 +23,9 @@ Setiap anggota kelompok membangun aplikasi web utuh miliknya sendiri dalam tema 
 |---|---|
 | Video Final —  | [https://www.youtube.com/watch?v=roxH2lq1k-w] |
 | Prototipe Figma | [https://www.figma.com/design/oZvolkE7MD2HuXWPPPOHdQ/CAMPUSFIND-%E2%80%94-Interactive-Prototype?node-id=3-2&t=KYXtsPqq4d5KHTxp-1] |
+| Link Laporan PDF | [https://drive.google.com/file/d/13heBKg7sIMcNh2VeAlSkYQ81FRWhkiCI/view?usp=sharing] |
 
-Dokumen PRD/SRS, SDD (UML, ERD, UI/UX), dan Laporan Pengujian/CI-CD digabung dalam satu berkas PDF yang diunggah ke portal LMS perkuliahan.
+
 
 ## Deskripsi Aplikasi
 
